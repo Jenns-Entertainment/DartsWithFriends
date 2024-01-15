@@ -4,7 +4,7 @@
 Alle möglichen Tools und Hilfen um unsere Anwendung zu programmieren.
 
 Das Grundgerüst der Anwendung folgt in großen Teilen diesem [Tutorial](https://milanwittpohl.com/de/projects/tutorials/Full-Stack-Web-App/the-backend-with-java-and-spring).
-Ich empfehle sich dies durchzulesen, um das Grundgerüst der Anwendung zu verstehen.
+Ich empfehle sich dies durchzulesen und zu verstehen, um das Grundgerüst der Anwendung zu verstehen.
 
 ## Front-End:
 
