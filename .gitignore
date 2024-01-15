@@ -1,0 +1,11 @@
+### IntelliJ IDEA ###
+.idea
+.vscode
+*.iws
+*.iml
+*.ipr
+.env
+out/
+backend_old/
+!**/src/main/**/out/
+!**/src/test/**/out/

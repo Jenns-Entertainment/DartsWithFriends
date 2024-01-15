@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.c_btn{
+    display: block; 
+    padding: 0.75rem; 
+    color: #ffffff;
+    width: 100%; 
+    border-width: 1px; 
+    }
+
+.c_btn.positive{
+    background-color: #00470c; 
+}
+.c_btn.negative{
+    background-color: #610000; 
+}
+.c_btn.cancel{
+    background-color: #535353; 
+}
+.c_btn.update{
+    background-color: #000770; 
+}
+
+.c_textfield{
+    display: block; 
+padding-top: 0.75rem;
+padding-bottom: 0.75rem; 
+padding-left: 1rem;
+padding-right: 1rem; 
+background-color: #E5E7EB; 
+color: #374151; 
+line-height: 1.25; 
+width: 100%; 
+border-radius: 0.25rem; 
+border-width: 1px; 
+border-color: #E5E7EB; 
+appearance: none; 
+text-align: center;
+    
+    }
+
+.c_label{
+    display: block; 
+margin-bottom: 0.5rem; 
+color: #374151; 
+font-size: 0.75rem;
+line-height: 1rem; 
+font-weight: 700; 
+letter-spacing: 0.025em; 
+text-transform: uppercase; 
+}
+
+
