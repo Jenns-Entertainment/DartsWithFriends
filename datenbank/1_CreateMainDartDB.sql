@@ -1,5 +1,5 @@
 -- --------------------------------------------------------
--- Host:                         sebisserver.ddns.net
+-- Host:                         test@test.de
 -- Server-Version:               10.3.38-MariaDB-0ubuntu0.20.04.1 - Ubuntu 20.04
 -- Server-Betriebssystem:        debian-linux-gnu
 -- HeidiSQL Version:             12.5.0.6677
