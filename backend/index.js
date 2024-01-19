@@ -1,4 +1,5 @@
 const express = require("express");
+require('dotenv').config({ path: '../.env' })
 const PORT = process.env.BACKEND_PORT || 3000;
 const playersRouter = require('./src/routes/players.route');
 
