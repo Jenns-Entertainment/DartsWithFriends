@@ -18,18 +18,33 @@
 import LobbiesList from '../components/Lobby/LobbiesList.vue';
 import CreateLobby from '../components/Lobby/CreateLobby.vue';
 import { useGlobalStore } from '../stores/AppItems';
+import { useLobbyStore } from '../stores/lobby';
 
   export default{
     name: "Lobbies",
     methods: {
         joinLobby(p_lobby){
-        this.$router.push({name: 'Lobby', params: {lobbyCode: p_lobby.lobbyCode, lobby: p_lobby}})
+          const lobbyStore = useLobbyStore();
+          lobbyStore.setLobby(p_lobby);
+          /* this.lobbyStore.appendPlayer({
+            player_id : 66,
+            player_name : 'current loged in user',
+            sets: 5,
+            legs: 4,
+            score: 32,
+            isCurrentUser: true, 
+            isCurrentTurn: true 
+          })
+          */
+          //console.log(lobbyStore.lobby)
+        this.$router.push({name: 'Lobby', params: {lobbyCode: p_lobby.lobbyCode}})
       }
     },
     data(){
       return{
         showCreateLobby : false,
         globalStore : useGlobalStore(),
+        LobbyStore : useLobbyStore(),
 
         lobbies: [
           {

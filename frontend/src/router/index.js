@@ -74,6 +74,11 @@ const router = createRouter({
       name: 'Lobbies',
       component: () => import('../views/Lobbies.vue')
     },
+    {
+      path: '/Settings',
+      name: 'Setings',
+      component: () => import('../views/Settings.vue')
+    },
   ]
 })
 
