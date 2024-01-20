@@ -25,7 +25,8 @@ export default {
   name: "Lobbies",
   methods: {
     joinLobby(p_lobby) {
-      useLobbyStore.setLobby(p_lobby);
+      const lobbyStore = useLobbyStore();
+      lobbyStore.setLobby(p_lobby);
       this.$router.push({ name: 'Lobby', params: { lobbyCode: p_lobby.lobbyCode } });
     },
   },
