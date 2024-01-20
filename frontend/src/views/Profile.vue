@@ -20,7 +20,7 @@
 
 <script setup>
 
-import CustomButton from "@/components/global/CustomButton.vue";
+import CustomButton from "@/components/global/C_btn.vue";
 import LogoutService from "@/services/LogoutService.js";
 import {useUserStore} from "@/stores/user";
 import router from "@/router";
