@@ -62,7 +62,7 @@ export default{
 .btn_join{
     display: table-row; 
     color: #ffffff;
-    width: 160%; 
+    width: 100%; 
     padding: 1%;
     margin-left: 2%;
     height: 200%;

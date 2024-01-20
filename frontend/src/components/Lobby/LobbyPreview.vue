@@ -13,6 +13,8 @@
         <td>{{ lobby.name }}</td>
         <td>{{ lobby.rooleset }}</td>
         <td>{{ lobby.private }}</td>
+        <td>{{ lobby.players }}</td>
+        <td>{{ lobby.status }}</td>
         <td><button @click="joinLobby" class="btn_join">Join</button></td>
     </tr>
 </table>
