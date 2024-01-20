@@ -41,6 +41,8 @@ import C_Header from "../global/C_Header.vue";
     }, 
     methods:{
       joinLobby(){
+        //(if user_already_in_lobby){only redirect dont add player to lobby}else{
+        //ToDo add backend connection to add a Player to the lobby }
         this.$router.push({name: 'Lobby', params: {lobby: this.lobby, lobbyCode : this.lobbyCode}})
       }
     }
