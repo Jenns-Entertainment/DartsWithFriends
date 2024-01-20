@@ -83,7 +83,7 @@ export default{
 }
 
 .dart-lobbies-table th {
-  background-color: #2c3e50;
+  background-color: #787878;
   color: #ecf0f1;
 }
 
