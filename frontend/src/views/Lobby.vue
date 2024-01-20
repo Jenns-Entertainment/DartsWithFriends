@@ -52,7 +52,6 @@ export default {
   mounted() {
     const lobbyStore = useLobbyStore();
     this.lobby= lobbyStore.lobby;
-    console.log('Amelie ist wunderschön')
     console.log(this.lobby)
     // call Backend Load Players for this Lobby 
   },
