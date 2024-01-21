@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const programmingLanguagesController = require('../controllers/player.controller');
+const playerController = require('../controllers/player.controller');
 
 /* POST programming language */
-router.post('/', programmingLanguagesController.create);
+router.post('/', playerController.create);
+router.get('/', playerController.get);
 
 module.exports = router;

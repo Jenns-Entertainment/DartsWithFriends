@@ -22,6 +22,25 @@ async function create(player){
     return {message};
 }
 
+async function get(email){
+    const result = await db.query(
+        `SELECT email,nickname,password FROM player
+         WHERE email=?`,
+        [
+            email
+        ]
+    );
+
+    let answer = 'Could not find player';
+
+    if (result.length > 0){
+        answer = result[0]
+    }
+
+    return {answer};
+}
+
 module.exports = {
-    create
+    create,
+    get
 }
