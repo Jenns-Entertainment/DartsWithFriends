@@ -22,10 +22,10 @@ async function create(player){
     return {message};
 }
 
-async function get(email){
+async function get_by_email(email){
     const result = await db.query(
-        `SELECT email,nickname,password FROM player
-         WHERE email=?`,
+        `SELECT player.pk_player_id,player.email,player.nickname,player.password FROM player
+         WHERE player.email=?`,
         [
             email
         ]
@@ -40,7 +40,26 @@ async function get(email){
     return {answer};
 }
 
+async function get_by_id(id){
+    const result = await db.query(
+        `SELECT player.pk_player_id,player.email,player.nickname,player.password FROM player
+         WHERE player.pk_player_id=?`,
+        [
+            id
+        ]
+    );
+
+    let answer = 'Could not find player';
+
+    if (result.length > 0){
+        answer = result[0]
+    }
+
+    return {answer};
+}
+
 module.exports = {
     create,
-    get
+    get_by_email,
+    get_by_id
 }
