@@ -1,4 +1,4 @@
-// Player Class 
+// Player Class
 class playerData {
 
     constructor(obj) {

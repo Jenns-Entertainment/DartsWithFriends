@@ -59,8 +59,29 @@ async function get_by_id(id){
     return {player}
 }
 
+async function update(id, player){
+    const result = await db.query(
+        `UPDATE player 
+    SET player.email=?, player.nickname=?, password=?
+    WHERE pk_player_id=?`,
+        [
+            player.email, player.nickname, player.password,
+            id
+        ]
+    );
+
+    let message = 'Error in updating player';
+
+    if (result.affectedRows) {
+        message = 'Player updated successfully';
+    }
+
+    return {message};
+}
+
 module.exports = {
     create,
     get_by_email,
-    get_by_id
+    get_by_id,
+    update
 }

@@ -27,7 +27,17 @@ async function get(req, res, next) {
     }
 }
 
+async function update(req, res, next) {
+    try {
+        res.json(await players.update(req.params.id, req.body));
+    } catch (err) {
+        console.error(`Error while updating player`, err.message);
+        next(err);
+    }
+}
+
 module.exports = {
     create,
-    get
+    get,
+    update
 };
