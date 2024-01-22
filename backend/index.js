@@ -2,6 +2,7 @@ const express = require("express");
 require('dotenv').config({ path: '../.env' })
 const PORT = process.env.BACKEND_PORT || 3000;
 const playersRouter = require('./src/routes/players.route');
+const gamesRouter = require('./src/routes/games.route');
 
 const app = express ();
 app.use(express.json());
@@ -11,6 +12,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/players', playersRouter);
+app.use('/games', gamesRouter);
 
 /* Error handler middleware */
 app.use((err, req, res, next) => {
