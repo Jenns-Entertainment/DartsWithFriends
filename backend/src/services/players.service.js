@@ -1,4 +1,5 @@
 const db = require('./db.service');
+const Player = require('../data/player.data');
 
 async function create(player){
     const result = await db.query(
@@ -31,13 +32,13 @@ async function get_by_email(email){
         ]
     );
 
-    let answer = 'Could not find player';
-
-    if (result.length > 0){
-        answer = result[0]
+    if (result.length === 0){
+        return {message: 'Could not find player'}
     }
 
-    return {answer};
+    let player = new Player(result[0])
+
+    return {player}
 }
 
 async function get_by_id(id){
@@ -49,13 +50,13 @@ async function get_by_id(id){
         ]
     );
 
-    let answer = 'Could not find player';
-
-    if (result.length > 0){
-        answer = result[0]
+    if (result.length === 0){
+        return {message: 'Could not find player'}
     }
 
-    return {answer};
+    let player = new Player(result[0])
+
+    return {player}
 }
 
 module.exports = {
