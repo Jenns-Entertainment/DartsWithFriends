@@ -36,6 +36,10 @@ async function performLogout () {
   }
 }
 
+function loadProfileData(){
+  // TODO call Backend load Profile Data by userid
+}
+
 onMounted(() => {
   store.updatePlayer();
 })

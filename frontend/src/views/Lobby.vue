@@ -75,6 +75,9 @@ export default {
       // Implement play turn action
       alert('Play Turn clicked');
     },
+    loadLobbyDetails(){
+      // TODO load Lobby Details by LobbyCode --> call Backend 
+    },
     async copyURL() {
       try {
         await navigator.clipboard.writeText(this.lobby.lobbyCode);

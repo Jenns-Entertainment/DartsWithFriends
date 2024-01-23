@@ -57,6 +57,15 @@ export default {
       // Show FriendsHover when the friend's name is clicked
       this.hoveredFriend = friend;
     },
+    loadFriends(){
+      // TODO: call backend service to load Lobbies
+    },
+    loadLastGames(){
+      // TODO: call backend service to load last Games
+    },
+    loadStatisticsPreview(){
+      // TODO: call backend service to load Statistics Preview
+    }
   },
 };
 </script>
