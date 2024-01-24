@@ -49,5 +49,10 @@ html {
   text-align: center;
 }
 
+.Home-Section-Heading{
+  font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
 
 </style>

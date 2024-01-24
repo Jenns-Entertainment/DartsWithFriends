@@ -1,85 +1,66 @@
 <template>
   <div class="modal-overlay" @click="$emit('close-modal')">
     <div class="modal" @click.stop>
-      <C_Header title="Create Lobby"></C_Header>
-      <form class="w-full max-w-lg" @submit.prevent="createLobby">
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full md:w-full px-3 mb-6 md:mb-0">
-            <C_txtField id="lobbyname" type="text" name="lobbyname" required placeholder="Lobby name" label="LobbyName"
-              :value="this.lobby.name" :disabled="!this.enable_LobbyName"/>
-          </div>
+      <div class="modal-header">
+        <h1 class="Home-Section-Heading">Create Lobby</h1>
+      </div>
+      <form class="modal-form" @submit.prevent="createLobby">
+        <div class="form-group">
+          <label for="lobbyname">Lobby Name</label>
+          <input type="text" id="lobbyname" v-model="lobby.name" required :disabled="!enable_LobbyName" />
         </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full md:w-1/4 px-3">
-            <label for="private">Availability</label> <br>
-            <select name="outType" id="outType" class="c_textfield" v-model="lobby.private" @change="fn_toggle_private($event)">
-                <option value=true>Private</option>
-                <option value=false >Public</option>
-              </select>
-          </div>
-          <div class="w-full md:w-3/4 px-3">
-            <C_txtField id="password" type="text" name="password" placeholder="Password" label="Password" v-if="this.lobby.private == 'true'"
-              :value="this.lobby.password" />
-          </div>
-          <div class="w-full md:w-1/3 px-3" v-show="false">
-            <label for="amount_Players">Player</label>
-            <input class="c_textfield" id="amount_Players" type="number" name="amount_Players" required placeholder=1 min=1
-              max="1000" v-model="lobby.amtPlayers" label="Player" />
-          </div>
-          <div class="w-full md:w-1/1 px-3">
-          <button class="c_btn cancel" @click.prevent="fn_toggle_advanced_Settings">Advanced Settings</button>
-        </div>
-
-        <div  class="w-full md:w-full px-3" v-show="this.show_advanced_Settings">
-          <div class="w-full md:w-full px-3">
-            <label for="rules">RuleSet:</label>
-          <select name="rules" id="rules" @change="fn_toggle_ruleset($event)"
-            class="c_textfield" v-model="this.lobby.rooleset" >
-            <option value=0 selected>Default </option>
-            <option value=1>Clock</option> <!-- TODO Regeln einfügen//-->
+        <div class="form-group">
+          <label for="private">Availability</label>
+          <select id="private" v-model="lobby.private" @change="fn_toggle_private">
+            <option value="true">Private</option>
+            <option value="false">Public</option>
           </select>
-          </div>
-        <div v-if="this.lobby.rooleset == 0" id="on_default_rooleset">
-        <div class="flex flex-wrap -mx-3 mb-2" >
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label for="score">Score</label>
-            <input class="c_textfield" id="score" type="number" name="score" required placeholder=501 default="501" min=1 v-model="lobby.score"/>
-          </div>
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label for="amount_legs">Out Type:</label>
-              <select name="outType" id="outType" class="c_textfield" v-model="lobby.outType">
+        </div>
+        <div class="form-group" v-if="lobby.private === 'true'">
+          <label for="password">Password</label>
+          <input type="password" id="password" v-model="lobby.password" />
+        </div>
+        <div class="form-group">
+          <button class="advanced-btn" @click.prevent="fn_toggle_advanced_Settings">
+            {{ show_advanced_Settings ? 'Hide Advanced Settings' : 'Show Advanced Settings' }}
+          </button>
+        </div>
+        <div class="form-group" v-show="show_advanced_Settings">
+          <label for="rules">RuleSet</label>
+          <select id="rules" @change="fn_toggle_ruleset" v-model="lobby.rooleset">
+            <option value="0">Default</option>
+            <option value="1">Clock</option>
+          </select>
+
+          <div v-if="lobby.rooleset === 0" class="advanced-settings">
+            <div class="form-group">
+              <label for="score">Score</label>
+              <input type="number" id="score" v-model="lobby.score" min="1" />
+            </div>
+            <div class="form-group">
+              <label for="outType">Out Type</label>
+              <select id="outType" v-model="lobby.outType">
                 <option value="1">Single Out</option>
-                <option value="2" >Double Out</option>
+                <option value="2">Double Out</option>
                 <option value="3">Masters Out</option>
               </select>
-          </div>
-          <div class="flex flex-wrap -mx-0 mb-2" >
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label for="amount_sets">Sets:</label>
-              <input type="number" name="amount_sets" id="amount_sets" class="c_textfield" v-model="lobby.sets" min="1">
-          </div>
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label for="amount_legs">Legs:</label>
-              <input type="number" name="amount_legs" id="amount_legs" class="c_textfield" v-model="lobby.legs" min="1">
-          </div>
-        </div>
-        </div>
-        </div>
-      </div>
-        <div class="flex flex-wrap -mx-3 mb-2" v-if="this.lobby.rooleset == 1" id="on_clock_rooleset">
-          <div class="w-full md:w-full px-3 mb-6 md:mb-0">
-              <label for="reverseClock">Reverse Clock? </label>
-              <input id="reverseClock" name="reverseClock" type="checkbox" />
+            </div>
+            <div class="form-group">
+              <label for="amount_sets">Sets</label>
+              <input type="number" id="amount_sets" v-model="lobby.sets" min="1" />
+            </div>
+            <div class="form-group">
+              <label for="amount_legs">Legs</label>
+              <input type="number" id="amount_legs" v-model="lobby.legs" min="1" />
             </div>
           </div>
         </div>
-          <div  class="flex flex-wrap -mx-3 mb-2">
-            <button class="c_btn red" @click.prevent="close">Cancel</button>
-            <button type="Submit" class="c_btn positive" v-if="this.create != 0">Submit</button>
-            <button type="Update" class="c_btn update" v-if="this.create == 0" @click.prevent="null">Update</button>
+        <div class="form-group">
+          <button class="cancel-btn" @click.prevent="close">Cancel</button>
+          <button type="submit" class="submit-btn" v-if="create !== 0">Submit</button>
+          <button type="button" class="update-btn" v-if="create === 0" @click.prevent="null">Update</button>
         </div>
       </form>
-      
     </div>
   </div>
 </template>
@@ -108,6 +89,7 @@ export default {
     createLobby(e) {
       this.fn_readFormData(e);
       this.fn_fillLobyStore();
+      //backend connection to create the lobby fn_backend_createLobby(lobbyStore.lobby)
       this.$router.push({ name: 'Lobby'})
       
 
@@ -199,25 +181,75 @@ export default {
   border-radius: 10px;
 }
 
-
-
-h6 {
-  font-weight: 500;
-  font-size: 28px;
-  margin: 20px 0;
+.modal-header {
+  margin-bottom: 20px;
 }
 
-p {
-  font-size: 16px;
-  margin: 20px 0;
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  font-size: 15px;
+  margin-bottom: 0px;
+  display: block;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 button {
-  background-color: #ac003e;
   width: 150px;
   height: 40px;
-  color: white;
   font-size: 14px;
-  border-radius: 16px;
-  margin-top: 50px;
-}</style>
+  border-radius: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.submit-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.update-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.advanced-btn {
+  background-color: #ccc;
+  color: #333;
+  padding: 8px 20px; /* Adjusted width */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 200px;
+}
+
+.advanced-settings {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.advanced-settings .form-group {
+  width: 50%; /* Two columns for advanced settings */
+  margin-bottom: 5px; /* Adjusted margin */
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+</style>

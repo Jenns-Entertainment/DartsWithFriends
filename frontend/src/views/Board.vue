@@ -7,7 +7,7 @@
   <body class="main_body">
     <div class="current_score">
       <CurrentScore id="current_score" text="CurrentScore" label="Press Start" class="text-center" readonly
-        :value="this.start_score">
+        >
       </CurrentScore>
       <h6 style="color:white; font-style: italic; font-size: 60%; padding-top: 0.5%; padding-bottom: 0.5%;">Possible
         outs:
@@ -28,11 +28,11 @@
         class="item_double multiply bg-gray-600 hover:bg-green-800 rounded">Double</button>
       <button id="item_triple" @click="fn_triple()"
         class="item_triple multiply functional bg-gray-600 hover:bg-green-800 rounded">Triple</button>
-      <ButtonScoreList :btns="btns" btns.label="TTTTTTTTT" @get-score="fn_setScore" />
-      <button id="item_delete" class="item_delete bg-red-600 hover:bg-red-800 rounded-md" @click="fn_delete"
-        :disabled='this.await_score_btn'>Delete</button>
-      <button id="item_submit" @click="fn_alert()" class="item_submit bg-green-600 hover:bg-green-800 rounded-md"
-        :disabled='this.await_score_btn'>Submit</button>
+      <ButtonScoreList :btns="btns"  @get-score="fn_setScore" />
+      <button id="item_delete" class="item_delete bg-red-600 hover:bg-red-800 rounded-md" @click="fn_delete()"
+        :disabled='this.fn_await_score_btn()'>Delete</button>
+      <button id="item_submit" @click="this.fn_submit_score()" class="item_submit bg-green-600 hover:bg-green-800 rounded-md"
+        :disabled='this.fn_await_score_btn()'>Submit</button>
     </div>
   </body>
 
@@ -49,7 +49,8 @@ import ButtonScore from "../components/Board/ButtonScore.vue";
 import CurrentScore from "../components/Board/currentScore.vue";
 import InputScoreThrow from "../components/Board/inputScoreThrow.vue";
 import ButtonScoreList from "../components/Board/ButtonScoreList.vue";
-var score = 0
+import { useLobbyStore } from "../stores/lobby";
+
 
 export default {
   name: 'Board',
@@ -69,6 +70,7 @@ export default {
       multiplier: 1,
       doubleclicked: false,
       tripleclicked: false,
+      lobby: Object,
     }
 
 
@@ -76,38 +78,41 @@ export default {
 
 
   methods: {
-    fn_start() {
-      let scoree = 501;
-      this.start_score = scoree
-    },
     fn_double() {
-      if (this.doubleclicked == false && this.tripleclicked == false) {
+      this.fn_resetLabel();
+      this.tripleclicked = false
+      if (this.doubleclicked == false) {
         this.fn_addLetterToLabel("D");
         this.multiplier = 2;
-        this.doubleclicked = true
-        this.tripleclicked = false
+        this.doubleclicked = true 
       } else {
-        this.fn_resetLabel("D");
+        this.multiplier = 1;
         this.doubleclicked = false
-        this.tripleclicked = false
       }
 
 
     },
 
     fn_triple() {
-      if (this.tripleclicked == false && this.doubleclicked == false) {
+      this.fn_resetLabel();
+      this.doubleclicked = false
+      if (this.tripleclicked == false) {
         this.fn_addLetterToLabel("T");
         this.multiplier = 3;
-        this.tripleclicked = true
-        this.doubleclicked = false
+        this.tripleclicked = true 
       } else {
-        this.fn_resetLabel("T");
+        this.multiplier = 1;
         this.tripleclicked = false
-        this.doubleclicked = false
       }
 
 
+    },
+    fn_await_score_btn(){
+      if(this.doubleclicked || this.tripleclicked){
+        return true;
+      }else{
+        return false;
+      }
     },
 
     fn_delete() {
@@ -121,9 +126,13 @@ export default {
       this.throws[this.currentThrow] = score
       this.currentThrow++
       // reset functionality
-      this.await_score_btn = false;
+      this.fn_reset_multi_btns();
       this.fn_resetLabel();
       this.multiplier = 1;
+    },
+    fn_reset_multi_btns(){
+      this.doubleclicked = false;
+      this.tripleclicked = false;
     },
 
     fn_addLetterToLabel(letter) {
@@ -147,12 +156,28 @@ export default {
         }
         this.btns = [...this.btns, btn]
       }
+      const btn =
+      {
+          id: 25,
+          label: 25,
+          score: 25
+      }
+      this.btns = [...this.btns, btn]
     },
+
+    fn_submit_score(){
+    this.score = this.throws[0] +  this.throws[1] +  this.throws[2];
+    alert(this.score);
+    //Backend Connection to give the lobby or add the darts
+  }
 
   },
   async created() {
     this.fn_initScoreButtons();
-  }
+    const lobbyStore = useLobbyStore();
+    this.lobby = lobbyStore;
+  },
+  
 }
 
 </script>
