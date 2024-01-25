@@ -1,14 +1,11 @@
 <!-- LastGameItem.vue -->
 
 <template>
-    <div class="last-game-item">
-      <div>{{ game.name }}</div>
-      <div>{{ game.status }}</div>
-      <div>{{ game.rank }}</div>
-      <div>
-        <button @click="handleGameAction" :class="getButtonClass()">{{ getButtonLabel() }}</button>
-      </div>
-    </div>
+  <tr>
+    <td>{{ game.name }}</td>
+    <td>{{ game.status }}</td>
+    <td><button @click="handleGameAction" :class="getButtonClass()">{{ getButtonLabel() }}</button></td>
+  </tr>
   </template>
   
   <script>
@@ -51,7 +48,7 @@
   }
   
   .play-button {
-    background-color: #4caf50;
+    background-color: #259929;
     color: white;
   }
   

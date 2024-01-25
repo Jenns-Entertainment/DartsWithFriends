@@ -3,20 +3,25 @@
 <template>
     <div id="last-games-section" class="box">
         <h2 class="Home-Section-Heading">Last Games</h2>
-      <div class="last-game-item last-game-header">
-        <div>Name</div>
-        <div>Status</div>
-        <div>Rank</div>
-        <div></div>
-      </div>
-      <LastGameItem v-for="game in lastGames" :key="game.name" :game="game" />
+        <table class="dart-table">
+          <tr>
+              <th class="green-header">Lobby Name</th>
+              <th class="green-header">Status</th>
+              <th class="green-header"></th>
+          </tr>
+
+            <LastGameItem v-for="game in lastGames" :key="game.name" :game="game" />
+
+          </table>
+      
       <!--<LastGamesGraph :gamePlacements="gamePlacements"/>--> <!-- will be done later -->
     </div>
   </template>
   
   <script>
   import LastGameItem from "./LastGameItem.vue";
-  import LastGamesGraph from "./LastGamesGraph.vue"
+  import LastGamesGraph from "./LastGamesGraph.vue";
+  import '../../../assets/styles/table-styles.css'
 
   export default {
     components: {
@@ -38,6 +43,10 @@
       this.lastGames = [
         { name: "Spiel von Schaumig", status: "active", rank: 1 },
         { name: "Team Paderborn", status: "completed 2nd place", rank: 2 },
+        { name: "Team Paderborn", status: "completed 2nd place", rank: 2 },
+        { name: "Team Paderborn", status: "completed 2nd place", rank: 2 },
+        { name: "Team Paderborn", status: "completed 2nd place", rank: 2 },
+        { name: "Spiel von Schaumig", status: "active", rank: 1 },
         // ... other last game entries ...
       ];
 

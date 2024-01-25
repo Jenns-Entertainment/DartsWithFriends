@@ -1,0 +1,45 @@
+/* table-styles.css */
+
+.btn_join {
+    color: #ffffff;
+    width: 100%; 
+    height: 100%;
+    background-color: #2b742d; 
+  }
+  
+  .dart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: lightgray;
+  }
+  
+  .green-header {
+    padding-left: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 10px;
+    text-align: center;
+    background-color: #2b742d;
+    color: #ffffff;
+  }
+
+  .dart-table tr{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: lightgray;
+  }
+
+  .dart-table td{
+    padding-left: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right: 10px;
+    text-align: center;
+  }
+  
+
+  
+
+  

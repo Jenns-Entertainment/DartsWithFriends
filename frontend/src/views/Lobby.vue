@@ -129,7 +129,7 @@ th {
 
 .play-button,
 .copy-button {
-  background-color: #4caf50;
+  background-color: #259929;
   color: white;
   border: none;
   border-radius: 5px;
@@ -161,7 +161,7 @@ th {
 }
 
 .primary {
-  background-color: #4caf50;
+  background-color: #259929;
   color: white;
 }
 </style>

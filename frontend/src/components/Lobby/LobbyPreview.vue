@@ -49,7 +49,7 @@ export default{
     margin-left: 2%;
     height: 200%;
     border-width: 1px; 
-    background-color: #00470c; 
+    background-color: #259929; 
 
 }
 </style>

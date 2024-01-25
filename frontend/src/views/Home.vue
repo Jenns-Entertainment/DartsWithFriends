@@ -103,7 +103,7 @@ export default {
 }
 
 .primary {
-  background-color: #4caf50;
+  background-color: #259929;
   color: white;
 }
 

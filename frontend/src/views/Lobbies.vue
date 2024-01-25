@@ -37,28 +37,55 @@ export default {
       lobbies: [
           {
             name: "Emil",
-            password: "",
             amtPlayers: 3,
             private: false,
-            rooleset: 0,
-            score: 501,
-            sets: 2,
-            legs: 2,
-            outType: 2,
             lobbyCode: "12345",
+            status: 'started',
+            ruleset: 1,
+            id: 1
           },
           {
-            name: "Test",
-            password: "",
-            amtPlayers: 6,
+            name: "Test1",
+            amtPlayers: 3,
             private: false,
-            rooleset: 1,
-            score: 701,
-            sets: 2,
-            legs: 2,
-            outType: 2,
             lobbyCode: "12345",
-          }
+            status: 'started',
+            ruleset: 0,
+            id: 2
+          },
+          {
+            name: "Nick",
+            amtPlayers: 3,
+            private: false,
+            lobbyCode: "12345",
+            status: 'started',
+            id: 3
+          },
+          {
+            name: "Justus",
+            amtPlayers: 3,
+            private: false,
+            lobbyCode: "12345",
+            status: 'started',
+            id: 4
+          },
+          {
+            name: "Karls Lobby",
+            amtPlayers: 3,
+            private: false,
+            lobbyCode: "12345",
+            status: 'started',
+            id: 5
+          },
+          {
+            name: "Darts is fun",
+            amtPlayers: 3,
+            private: false,
+            lobbyCode: "12345",
+            status: 'started',
+            id: 6
+          },
+         
         ],
     };
   },
@@ -82,6 +109,7 @@ export default {
 .column-left {
   flex: 3;
   margin-right: 20px; /* Adjust the margin as needed */
+  margin-left: 20px;
 }
 
 .column-right {
@@ -90,13 +118,13 @@ export default {
 }
 
 .table-container {
-  margin: 0 20px 20px; /* Adjust the margin as needed */
+  margin: 20px 20px 20px; /* Adjust the margin as needed */
 }
 
 .create-lobby-button {
   display: block;
   margin-top: 20px; /* Adjust the margin as needed */
-  background-color: #00470c;
+  background-color: #2b742d;
   width: 100%;
   color: #ffffff;
   margin-right: 10%;
