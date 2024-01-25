@@ -1,4 +1,5 @@
 const db = require('./db.service');
+const Player = require('../data/player.data');
 
 async function create(player){
     const result = await db.query(
@@ -22,6 +23,65 @@ async function create(player){
     return {message};
 }
 
+async function get_by_email(email){
+    const result = await db.query(
+        `SELECT player.pk_player_id,player.email,player.nickname,player.password FROM player
+         WHERE player.email=?`,
+        [
+            email
+        ]
+    );
+
+    if (result.length === 0){
+        return {message: 'Could not find player'}
+    }
+
+    let player = new Player(result[0])
+
+    return {player}
+}
+
+async function get_by_id(id){
+    const result = await db.query(
+        `SELECT player.pk_player_id,player.email,player.nickname,player.password FROM player
+         WHERE player.pk_player_id=?`,
+        [
+            id
+        ]
+    );
+
+    if (result.length === 0){
+        return {message: 'Could not find player'}
+    }
+
+    let player = new Player(result[0])
+
+    return {player}
+}
+
+async function update(id, player){
+    const result = await db.query(
+        `UPDATE player 
+    SET player.email=?, player.nickname=?, password=?
+    WHERE pk_player_id=?`,
+        [
+            player.email, player.nickname, player.password,
+            id
+        ]
+    );
+
+    let message = 'Error in updating player';
+
+    if (result.affectedRows) {
+        message = 'Player updated successfully';
+    }
+
+    return {message};
+}
+
 module.exports = {
-    create
+    create,
+    get_by_email,
+    get_by_id,
+    update
 }
