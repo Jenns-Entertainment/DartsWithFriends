@@ -1,17 +1,15 @@
 <!-- LastGamesSection.vue -->
 
 <template>
-    <div id="last-games-section" class="box">
+    <div id="last-games-section" class="home-section">
         <h2 class="Home-Section-Heading">Last Games</h2>
         <table class="dart-table">
           <tr>
-              <th class="green-header">Lobby Name</th>
-              <th class="green-header">Status</th>
-              <th class="green-header"></th>
+              <th >Lobby Name</th>
+              <th >Status</th>
+              <th ></th>
           </tr>
-
             <LastGameItem v-for="game in lastGames" :key="game.name" :game="game" />
-
           </table>
       
       <!--<LastGamesGraph :gamePlacements="gamePlacements"/>--> <!-- will be done later -->

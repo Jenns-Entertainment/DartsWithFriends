@@ -9,6 +9,8 @@
   </template>
   
   <script>
+  import '../../../assets/styles/home-style.css';
+  import '../../../assets/styles/table-styles.css';
   export default {
     props: {
       game: {
@@ -34,27 +36,13 @@
       },
       getButtonClass() {
       // Determine the button class based on the game status
-      return this.game.status === "active" ? "play-button" : "view-button";
+      return this.game.status === "active" ? "table-action-button" : "table-view-button";
     },
     },
   };
   </script>
   
   <style scoped>
-  button {
-    width: 100%;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .play-button {
-    background-color: #259929;
-    color: white;
-  }
-  
-  .view-button {
-    background-color: #2196f3;
-    color: white;
-  }
+
   </style>
   

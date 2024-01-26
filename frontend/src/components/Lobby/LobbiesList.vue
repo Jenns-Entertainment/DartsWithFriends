@@ -3,20 +3,20 @@
       <!--<LobbyPreview :lobby="lobby" @join-lobby="$emit('join-lobby', lobby)"/> -->
       <table class="dart-table">
           <tr>
-              <th class="green-header">Lobby Name</th>
-              <th class="green-header">Rooleset</th>
-              <th class="green-header">Public</th>
-              <th class="green-header">Players</th>
-              <th class="green-header">Status</th>
-              <th class="green-header"></th>
+              <th>Lobby Name</th>
+              <th>Rooleset</th>
+              <th>Public</th>
+              <th>Players</th>
+              <th>Status</th>
+              <th></th>
           </tr>
-          <tr :key="lobby.lobbyCode" v-for="(lobby, index) in lobbies" :class="{ 'light-grey-row': index % 2 === 0 }">    
+          <tr :key="lobby.lobbyCode" v-for="(lobby, index) in lobbies" :class="{ 'light-grey-row': index % 2 === 0 }">    <!-- altering colors here-->
               <td>{{ lobby.name }}</td>
               <td>{{ fn_return_ruleset(lobby.ruleset) }}</td>
               <td>{{ lobby.private ? 'Public' : 'Private'}}</td>
               <td>{{ lobby.amtPlayers }}</td>
               <td>{{ lobby.status }}</td>
-              <td><button @click="fn_joinLobby(lobby)" class="btn_join">Join</button></td>
+              <td><button @click="fn_joinLobby(lobby)" class="table-action-button ">Join</button></td>
           </tr>
       </table>
   </div>

@@ -36,6 +36,7 @@
 
   
   <script>
+  import '../../../assets/styles/home-style.css'
   import LastGamesGraph from '../LastGames/LastGamesGraph.vue';
   export default {
     components:{

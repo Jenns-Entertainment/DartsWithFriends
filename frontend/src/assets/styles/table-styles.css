@@ -1,10 +1,28 @@
 /* table-styles.css */
 
-.btn_join {
+.table-action-button,
+.table-view-button {
     color: #ffffff;
     width: 100%; 
     height: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  
+  .table-action-button{
     background-color: #2b742d; 
+  }
+
+  .table-action-button:hover{
+    background-color: #0c4b17;
+  }
+
+  .table-view-button {
+    background-color: #2196f3; 
+  }
+
+  .table-view-button:hover{
+    background-color: #114977;
   }
   
   .dart-table {
@@ -15,6 +33,15 @@
   }
   
   .green-header {
+    padding-left: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 10px;
+    text-align: center;
+    background-color: #2b742d;
+    color: #ffffff;
+  }
+  .dart-table th {
     padding-left: 10px;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -38,6 +65,9 @@
     padding-right: 10px;
     text-align: center;
   }
+
+
+  
   
 
   

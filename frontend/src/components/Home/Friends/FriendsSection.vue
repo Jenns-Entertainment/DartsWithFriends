@@ -1,29 +1,29 @@
 <!-- FriendsSection.vue -->
 
 <template>
-  <div id="friends-section" class="box">
+  <div id="friends-section" class="home-section">
     <h2 class="Home-Section-Heading">Friends</h2>
-    <div class="friend-item friend-header">
-      <div></div>
-      <div class="column-heading">Name</div>
-      <div></div>
-    </div>
-    <FriendItem
-      v-for="friend in this.friends"
-      :key="friend.name"
-      :friend="friend"
-      @toggle-friends-hover="toggleFriendsHover"
-      :ref="`friend-${friend.name}`"
-    />
-    <FriendsHover
-      v-if="selectedFriend"
-      :friend="selectedFriend"
-      @close-friends-hover="closeFriendsHover"
-    />
+      <table class="dart-table">
+          <tr>
+              <th >Status</th>
+              <th >Name</th>
+              <th></th>
+          </tr>
+          <FriendItem
+              v-for="friend in this.friends"
+              :key="friend.name"
+              :friend="friend"
+              :ref="`friend-${friend.name}`"
+          />
+          
+          </table>
+    
   </div>
+  
 </template>
 
 <script>
+import '../../../assets/styles/home-style.css';
 import FriendItem from "./FriendItem.vue";
 import FriendsHover from "./FriendsHover.vue";
 
@@ -51,12 +51,7 @@ export default {
     },
   },
   methods: {
-    toggleFriendsHover(friend) {
-      this.selectedFriend = this.selectedFriend === friend ? null : friend;
-    },
-    closeFriendsHover() {
-      this.selectedFriend = null;
-    },
+    
     loadFriends() {
       // Simulate loading friends data from an API or database
       this.friends = [
@@ -71,29 +66,21 @@ export default {
 </script>
 
 <style scoped>
-#friends-section {
-  margin-top: 20px;
-  text-align: center;
+
+.dart-table {
+  width: 100%; /* Set the table width to 100% for responsiveness */
 }
 
-
-
-.friend-item {
-  position: relative;
-  display: grid;
-  grid-template-columns: 19% 81% ;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  cursor: pointer;
+.dart-table th:nth-child(1) {
+  width: 30%; /* Adjust the width of the first column */
 }
 
-.friend-item.friend-header {
-  font-weight: bold;
-  background-color: #f5f5f5;
+.dart-table th:nth-child(2) {
+  width: 30%; /* Adjust the width of the second column */
 }
 
-.column-heading {
-  text-align: left;
+.dart-table th:nth-child(3) {
+  width: 40%; /* Adjust the width of the third column */
 }
+
 </style>

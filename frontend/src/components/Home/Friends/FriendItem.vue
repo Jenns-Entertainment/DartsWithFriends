@@ -1,66 +1,56 @@
 <!-- FriendItem.vue -->
 
 <template>
-    <div class="friend-item" @click="toggleFriendsHover">
-      <div>
-        <span :class="{ 'online-circle': friend.online, 'offline-circle': !friend.online }"></span>
-      </div>
-      <div class="friend-name">{{ friend.name }}</div>
-      <div class="empty-column"></div>
-    </div>
+      <tr @click="toggleFriendsHover">
+        <td><span :class="{ 'online-circle': friend.online, 'offline-circle': !friend.online }"></span></td>
+        <td>{{ friend.name }}</td>
+      </tr>
+      <tr>
+        <!-- here add the FriendHover stuff-->
+        <FriendsHover
+              v-if="friendsHover"
+              :friend="this.friend"
+            />
+      </tr>
+
   </template>
   
   <script>
+  import '../../../assets/styles/home-style.css';
+  import '../../../assets/styles/table-styles.css';
+  import FriendsHover from './FriendsHover.vue';
   export default {
+    components: {
+    FriendsHover,
+  },
     props: {
       friend: {
         type: Object,
         required: true,
       },
     },
+    data() {
+    return {
+      friendsHover: false,
+      selectedFriend: null
+    };
+  },
     methods: {
+      toggleFriendsHover(friend) {
+      this.selectedFriend = this.selectedFriend === friend ? null : friend;
+    },
+    closeFriendsHover() {
+      this.selectedFriend = null;
+    },
       toggleFriendsHover() {
-        this.$emit("toggle-friends-hover", this.friend);
+        this.friendsHover = !this.friendsHover;
+        //this.$emit("toggle-friends-hover", this.friend);
       },
     },
   };
   </script>
   
   <style scoped>
-  .friend-item {
-    position: relative;
-    display: grid;
-    grid-template-columns: 10% 45% 45%;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    cursor: pointer;
-  }
   
-  .online-circle,
-  .offline-circle {
-    display: inline-block;
-    width: 10%;
-    height: 10px;
-    border-radius: 50%;
-
-  }
-  
-  .online-circle {
-    background-color: green;
-  }
-  
-  .offline-circle {
-    background-color: grey;
-  }
-  
-  .friend-name {
-    width: 45%;
-    text-align: left;
-  }
-  
-  .empty-column {
-    width: 45%;
-  }
   </style>
   

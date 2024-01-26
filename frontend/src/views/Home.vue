@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="home-container">
-    <div id="left-column" class="column">
-      <div id="top-section" class="box">
+    <div id="home-left-column" class="column">
+      <div id="top-section" class="home-section">
         <button @click="showCreateGame = true" class="action-button primary">Create Game</button>
         <button @click="joinGame" class="action-button primary">Join Game</button>
       </div>
@@ -9,8 +9,8 @@
       <StatisticsSection />
     </div>
 
-    <div id="right-column" class="column">
-      <div id="online-players" class="box">
+    <div id="home-right-column" class="column">
+      <div id="online-players" class="home-section">
         <p>{{ onlinePlayers }} players are currently online</p>
       </div>
       <FriendsSection @close-friends-hover="closeFriendsHover" @show-friends-hover="showFriendsHover" />
@@ -27,6 +27,7 @@ import FriendsSection from "../components/Home/Friends/FriendsSection.vue";
 import CreateLobby from "../components/Lobby/CreateLobby.vue";
 import LastGamesSection from "../components/Home/LastGames/LastGamesSection.vue";
 import StatisticsSection from "../components/Home/Statistics/StatisticsSection.vue";
+import '../assets/styles/home-style.css';
 
 export default {
   components: {
@@ -71,51 +72,7 @@ export default {
 </script>
 
 <style scoped>
-.home-container {
-  display: flex;
-  margin: 5%;
-  background-color: #ffffff;
-  border: 2px solid black;
-}
 
-.column {
-  flex: 2;
-  padding: 20px;
-}
-
-#right-column {
-  flex: 1;
-}
-.box {
-  padding: 20px;
-  background-color: rgb(213, 213, 213);
-  margin-bottom: 20px;
-}
-
-.action-button {
-  padding: 15px 30px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 10px;
-  display: block;
-  width: 100%;
-}
-
-.primary {
-  background-color: #259929;
-  color: white;
-}
-
-#top-section {
-  text-align: center;
-}
-
-#online-players {
-  background-color: rgb(213, 213, 213); /* Unified background color */
-  padding: 20px;
-  margin-bottom: 20px;
-}
 
 
 
