@@ -1,9 +1,11 @@
 <!-- FriendsHover.vue -->
 
 <template>
+  <tr>
       <td><button class="table-action-button">View Profile</button></td>
       <td><button class="table-action-button">Challenge</button></td>
       <td><button class="table-action-button">Compare Statistics</button></td>
+    </tr>
 </template>
 
 <script>
@@ -17,8 +19,8 @@ export default {
     },
   },
   methods: {
-    closeFriendsHover() {
-      this.$emit("close-friends-hover");
+    friend_clicked() {
+      this.$emit("view-bnt-clicked");
     },
   },
 };

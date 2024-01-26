@@ -31,7 +31,7 @@
   }
   .home-section {
     padding: 20px;
-    background-color: rgb(213, 213, 213);
+    background-color: rgb(255, 255, 255);
     margin-bottom: 20px;
   }
   
@@ -41,46 +41,8 @@
 
 /* Friend Stuff */
 
-  .friend-item {
-    position: relative;
-    display: grid;
-    grid-template-columns: 20% 40% 40%;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    cursor: pointer;
-  }
-  
-  .online-circle,
-  .offline-circle {
-    display: inline-block;
-    width: 10%;
-    height: 10px;
-    border-radius: 50%;
 
-  }
-  
-  .online-circle {
-    background-color: green;
-  }
-  
-  .offline-circle {
-    background-color: grey;
-  }
-  
-  .friend-name {
-    width: 40%;
-    text-align: left;
-  }
-  
-  .empty-column {
-    width: 40%;
-  }
 
-  #friends-section {
-    margin-top: 20px;
-    text-align: center;
-  }
 
   /* autommented for now
 
@@ -90,6 +52,16 @@
     justify-content: space-between;
     padding: 10px;
     border-bottom: 1px solid #ddd;
+  }
+
+  .friend-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 20% 40% 40%;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
   }
 
   */

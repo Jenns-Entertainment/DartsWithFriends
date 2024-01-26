@@ -11,8 +11,10 @@
           </tr>
           <FriendItem
               v-for="friend in this.friends"
+              v-bind="friend.clicked"
               :key="friend.name"
               :friend="friend"
+              @friend-clicked="friendclicked()"
               :ref="`friend-${friend.name}`"
           />
           
@@ -24,6 +26,7 @@
 
 <script>
 import '../../../assets/styles/home-style.css';
+import '../../../assets/styles/table-styles.css';
 import FriendItem from "./FriendItem.vue";
 import FriendsHover from "./FriendsHover.vue";
 
@@ -32,6 +35,7 @@ export default {
     FriendItem,
     FriendsHover,
   },
+  
   data() {
     return {
       selectedFriend: null,
@@ -51,14 +55,21 @@ export default {
     },
   },
   methods: {
+
+    friendclicked(){
+      //loop through this.friends and set all clicked to false
+      this.friends.forEach(friend => {
+        friend.clicked = false;
+      });
+    },
     
     loadFriends() {
       // Simulate loading friends data from an API or database
       this.friends = [
-        { name: "Swaggerboy", online: true },
-        { name: "Schaumstoff", online: true },
-        { name: "Justus", online: false },
-        { name: "Zebastian", online: false },
+        { name: "Swaggerboy", online: true, clicked: false},
+        { name: "Schaumstoff", online: true, clicked: false},
+        { name: "Justus", online: false, clicked: false},
+        { name: "Zebastian", online: false, clicked: false },
       ];
     },
   },
@@ -67,9 +78,8 @@ export default {
 
 <style scoped>
 
-.dart-table {
-  width: 100%; /* Set the table width to 100% for responsiveness */
-}
+
+
 
 .dart-table th:nth-child(1) {
   width: 30%; /* Adjust the width of the first column */

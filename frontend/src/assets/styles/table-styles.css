@@ -58,6 +58,14 @@
     background-color: lightgray;
   }
 
+  .dart-table tr:nth-child(even) {
+    background-color: lightgray;
+  }
+  
+  .dart-table tr:nth-child(odd) {
+    background-color: white;
+  }
+
   .dart-table td{
     padding-left: 10px;
     padding-top: 6px;

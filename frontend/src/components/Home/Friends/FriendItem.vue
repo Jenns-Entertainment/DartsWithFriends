@@ -1,17 +1,18 @@
 <!-- FriendItem.vue -->
 
 <template>
-      <tr @click="toggleFriendsHover">
+      <tr @click="toggleFriendsHover" class="dart-table">
         <td><span :class="{ 'online-circle': friend.online, 'offline-circle': !friend.online }"></span></td>
         <td>{{ friend.name }}</td>
+        <td></td>
       </tr>
-      <tr>
+      
         <!-- here add the FriendHover stuff-->
         <FriendsHover
-              v-if="friendsHover"
+              v-if="friend.clicked"
               :friend="this.friend"
             />
-      </tr>
+      
 
   </template>
   
@@ -29,28 +30,45 @@
         required: true,
       },
     },
+    emits: ["friend-clicked"],
     data() {
     return {
       friendsHover: false,
-      selectedFriend: null
+      selectedFriend: null,
     };
   },
     methods: {
-      toggleFriendsHover(friend) {
-      this.selectedFriend = this.selectedFriend === friend ? null : friend;
-    },
+      
     closeFriendsHover() {
       this.selectedFriend = null;
     },
       toggleFriendsHover() {
-        this.friendsHover = !this.friendsHover;
-        //this.$emit("toggle-friends-hover", this.friend);
+        let origValue = this.friend.clicked;
+        this.$emit("friend-clicked");
+        this.friend.clicked = !origValue;
+        
       },
     },
   };
   </script>
   
   <style scoped>
+
+.online-circle,
+  .offline-circle {
+    display: inline-block;
+    width: 10%;
+    height: 10px;
+    border-radius: 50%;
+
+  }
   
+  .online-circle {
+    background-color: green;
+  }
+  
+  .offline-circle {
+    background-color: grey;
+  }
   </style>
   

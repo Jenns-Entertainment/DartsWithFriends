@@ -44,5 +44,15 @@
   
   <style scoped>
 
+  /*
+.table-action-button{
+  padding-right: 0%;
+  margin-right: -10%;
+}
+.table-view-button{
+  padding-right: 0%;
+  margin-right: -10%;
+}
+*/
   </style>
   
