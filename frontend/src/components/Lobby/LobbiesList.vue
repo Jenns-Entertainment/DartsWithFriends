@@ -10,14 +10,9 @@
               <th>Status</th>
               <th></th>
           </tr>
-          <tr :key="lobby.lobbyCode" v-for="(lobby, index) in lobbies" :class="{ 'light-grey-row': index % 2 === 0 }">    <!-- altering colors here-->
-              <td>{{ lobby.name }}</td>
-              <td>{{ fn_return_ruleset(lobby.ruleset) }}</td>
-              <td>{{ lobby.private ? 'Public' : 'Private'}}</td>
-              <td>{{ lobby.amtPlayers }}</td>
-              <td>{{ lobby.status }}</td>
-              <td><button @click="fn_joinLobby(lobby)" class="table-action-button ">Join</button></td>
-          </tr>
+          
+            <LobbieListItem v-for="lobby in lobbies" :key="lobby.name" :lobby="lobby" @join-lobby="fn_joinLobby(lobby)"/>
+        
       </table>
   </div>
 </template>
@@ -26,23 +21,75 @@
 import Lobby from '../../views/Lobby.vue';
 import LobbyPreview from './LobbyPreview.vue';
 import '../../assets/styles/table-styles.css'
+import LobbieListItem from './LobbieListItem.vue';
+import { useLobbyStore } from '../../stores/lobby';
 
 export default {
   name: "LobbiesList.vue",
-  props: {
-      lobbies: Array
-  },
+  data(){
+      return{
+        lobbies: [
+          {
+            name: "Emil",
+            amtPlayers: 3,
+            private: false,
+            lobbyCode: "12345",
+            status: 'started',
+            ruleset: 1,
+            id: 1
+          },
+          {
+            name: "Test1",
+            amtPlayers: 3,
+            private: false,
+            lobbyCode: "12345",
+            status: 'started',
+            ruleset: 0,
+            id: 2
+          },
+          {
+            name: "Nick",
+            amtPlayers: 3,
+            private: false,
+            lobbyCode: "12345",
+            status: 'started',
+            id: 3
+          },
+          {
+            name: "Justus",
+            amtPlayers: 3,
+            private: false,
+            lobbyCode: "12345",
+            status: 'started',
+            id: 4
+          },
+          {
+            name: "Karls Lobby",
+            amtPlayers: 3,
+            private: false,
+            lobbyCode: "12345",
+            status: 'started',
+            id: 5
+          },
+          {
+            name: "Darts is fun",
+            amtPlayers: 3,
+            private: false,
+            lobbyCode: "12345",
+            status: 'started',
+            id: 6
+          },
+         
+        ],
+      }
+    },
   methods: {
-      fn_return_ruleset(ruleset) {
-          if (ruleset == 0) {
-              return "Default"
-          } else {
-              return "Around the clock"
-          }
-      },
-      fn_joinLobby(lobby) {
-          this.$emit("join-lobby", lobby)
-      },
+      
+    fn_joinLobby(p_lobby) {
+      const lobbyStore = useLobbyStore();
+      lobbyStore.setLobby(p_lobby);
+      this.$router.push({ name: 'Lobby', params: { lobbyCode: p_lobby.lobbyCode } });
+    },
       loadLobbies() {
           // Assuming you have a Vuex getter named getLobbies
           // this.lobbies = this.$store.getters['dartGame/getLobbies'];
@@ -51,7 +98,7 @@ export default {
   mounted() {
       this.loadLobbies();
   },
-  components: { Lobby, LobbyPreview },
+  components: { Lobby, LobbyPreview, LobbieListItem },
   emits: ['join-lobby']
 }
 </script>

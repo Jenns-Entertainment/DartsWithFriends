@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="column-left">
       <div class="table-container">
-        <LobbiesList :lobbies="lobbies" @join-lobby="joinLobby" />
+        <LobbiesList/>
       </div>
     </div>
 
@@ -24,69 +24,13 @@ import { useLobbyStore } from '../stores/lobby';
 export default {
   name: "Lobbies",
   methods: {
-    joinLobby(p_lobby) {
-      const lobbyStore = useLobbyStore();
-      lobbyStore.setLobby(p_lobby);
-      this.$router.push({ name: 'Lobby', params: { lobbyCode: p_lobby.lobbyCode } });
-    },
+    
   },
   data() {
     return {
       showCreateLobby: false,
       globalStore: useGlobalStore(),
-      lobbies: [
-          {
-            name: "Emil",
-            amtPlayers: 3,
-            private: false,
-            lobbyCode: "12345",
-            status: 'started',
-            ruleset: 1,
-            id: 1
-          },
-          {
-            name: "Test1",
-            amtPlayers: 3,
-            private: false,
-            lobbyCode: "12345",
-            status: 'started',
-            ruleset: 0,
-            id: 2
-          },
-          {
-            name: "Nick",
-            amtPlayers: 3,
-            private: false,
-            lobbyCode: "12345",
-            status: 'started',
-            id: 3
-          },
-          {
-            name: "Justus",
-            amtPlayers: 3,
-            private: false,
-            lobbyCode: "12345",
-            status: 'started',
-            id: 4
-          },
-          {
-            name: "Karls Lobby",
-            amtPlayers: 3,
-            private: false,
-            lobbyCode: "12345",
-            status: 'started',
-            id: 5
-          },
-          {
-            name: "Darts is fun",
-            amtPlayers: 3,
-            private: false,
-            lobbyCode: "12345",
-            status: 'started',
-            id: 6
-          },
-         
-        ],
+     
     };
   },
   async created() {

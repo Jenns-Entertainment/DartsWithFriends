@@ -2,7 +2,7 @@
   <div class="page-container">
     <div class="left-column">
       <!-- Table for Player, Score, Sets, Legs, and Action -->
-      <table>
+      <table class="dart-table">
         <thead>
           <tr>
             <th>Player</th>
@@ -108,23 +108,6 @@ export default {
   flex: 1;
   padding: 20px;
   background-color: rgb(213, 213, 213); /* Light grey background */
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-
-th,
-td {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-th {
-  background-color: #f2f2f2;
 }
 
 .play-button,
