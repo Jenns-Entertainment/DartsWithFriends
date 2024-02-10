@@ -1,5 +1,7 @@
 <template>
   <div>
+    <h1 calls="Home-Section-Heading">Account Settings</h1>
+    <br>
     <div class="account-item">
       <label>Email Address</label>
       <div class="item-content">
@@ -27,6 +29,7 @@
 </template>
 
 <script>
+import '../../assets/styles/settings-style.css';
 export default {
   data() {
     return {
@@ -52,12 +55,6 @@ export default {
 
 .label {
   font-weight: bold;
-}
-
-.item-content {
-  display: flex;
-  flex: 1;
-  align-items: center;
 }
 
 .fa-pencil-alt {
