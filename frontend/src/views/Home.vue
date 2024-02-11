@@ -14,6 +14,7 @@
         <p>{{ onlinePlayers }} players are currently online</p>
       </div>
       <FriendsSection @close-friends-hover="closeFriendsHover" @show-friends-hover="showFriendsHover" />
+      <div>Here to add possible outs</div>
     </div>
 
     <!-- Display CreateLobby modal based on showModal value -->

@@ -1,28 +1,28 @@
 <template>
   <div>
-    <h1 calls="Home-Section-Heading">Account Settings</h1>
+    <h1 class="Settings-Heading">Account Settings</h1>
     <br>
     <div class="account-item">
-      <label>Email Address</label>
+      <label class="account-item-header">Email Address</label>
       <div class="item-content">
         <span>{{ email }}</span>
-        <i class="fas fa-pencil-alt" @click="editItem('email')"></i>
+        <i class="fas fa-pencil-alt" @click="editItem('email')">Edit</i>
       </div>
     </div>
 
     <div class="account-item">
-      <label>Password</label>
+      <label class="account-item-header">Password</label>
       <div class="item-content">
         <span>{{ password }}</span>
-        <i class="fas fa-pencil-alt" @click="editItem('password')"></i>
+        <i class="fas fa-pencil-alt" @click="editItem('password')">Edit</i>
       </div>
     </div>
 
     <div class="account-item">
-      <label>Nickname</label>
+      <label class="account-item-header">Nickname</label>
       <div class="item-content">
         <span>{{ nickname }}</span>
-        <i class="fas fa-pencil-alt" @click="editItem('nickname')"></i>
+        <i class="fas fa-pencil-alt" @click="editItem('nickname')">Edit</i>
       </div>
     </div>
   </div>
@@ -51,6 +51,12 @@ export default {
 <style scoped>
 .account-item {
   margin-bottom: 20px;
+}
+
+.account-item-header{
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
 }
 
 .label {

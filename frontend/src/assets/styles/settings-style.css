@@ -1,7 +1,7 @@
 .settings-box {
   display: table;
   width: 100%;
-  margin-top: 5%;
+  
 }
 
 .settings-navbar-left {
@@ -10,6 +10,8 @@
   padding: 20px;
   background: #e2e2e2;
   border-right: 5px solid black;
+  justify-content: center;
+  align-items: center;
 }
 
 .settings-column-placeholder {
@@ -42,6 +44,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+}
+
+.Settings-Heading{
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
 }
 
 
