@@ -7,6 +7,7 @@
       </div>
       <LastGamesSection />
       <StatisticsSection />
+      <C_Content_box content = "Hello" header="Header"/>
     </div>
 
     <div id="home-right-column" class="column">
@@ -29,6 +30,7 @@ import CreateLobby from "../components/Lobby/CreateLobby.vue";
 import LastGamesSection from "../components/Home/LastGames/LastGamesSection.vue";
 import StatisticsSection from "../components/Home/Statistics/StatisticsSection.vue";
 import '../assets/styles/home-style.css';
+import C_Content_box from "../components/global/C_Content_box.vue";
 
 export default {
   components: {
@@ -37,7 +39,8 @@ export default {
     LastGamesSection,
     FriendsSection,
     StatisticsSection,
-  },
+    C_Content_box
+},
   data() {
     return {
       onlinePlayers: 2, // Initialize with the actual count of online players
