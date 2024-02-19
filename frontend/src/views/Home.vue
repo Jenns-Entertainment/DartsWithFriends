@@ -7,7 +7,6 @@
       </div>
       <LastGamesSection />
       <StatisticsSection />
-      <C_Content_box content = "Hello" header="Header"/>
     </div>
 
     <div id="home-right-column" class="column">

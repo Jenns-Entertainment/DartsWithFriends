@@ -1,5 +1,5 @@
 <template>
-    <div class="floating-box">
+    <div :style="{ width: `${width}px` }" class="floating-box">
         <table class="custom-table">
             <th class="header">
                 {{ header }}
@@ -19,6 +19,10 @@ export default {
     props: {
         header: String,
         content: String,
+        width: {
+            type: Number,
+            default: 250, // Default width if not specified
+        },
     },
 }
 </script>
@@ -28,7 +32,6 @@ export default {
     float: left;
     margin: 10px;
     padding: 10px;
-    width: 250px; /* Change this value to set the width of the floating box */
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
@@ -50,6 +53,6 @@ export default {
     background-color: #666666;
     color: #fff;
     text-align: center;
-    padding: 20px; /* Change this value to double the height of the content */
+    padding: 10px;
 }
 </style>

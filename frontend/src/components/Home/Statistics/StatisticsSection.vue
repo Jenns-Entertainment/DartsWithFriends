@@ -5,30 +5,7 @@
       <h2 class="Home-Section-Heading">Statistics</h2>
       <!--<LastGamesGraph :gamePlacements="gamePlacements"/>-->
       <div class="statistics-content">
-        <div class="statistics-item" v-if="playerStats.avgPoints !== undefined">
-          <div class="label">Average Points:</div>
-          <div class="value">{{ playerStats.avgPoints }}</div>
-        </div>
-        <div class="statistics-item" v-if="playerStats.avgDoubleOutRate !== undefined">
-          <div class="label">Average Double Out Rate:</div>
-          <div class="value">{{ playerStats.avgDoubleOutRate }}%</div>
-        </div>
-        <div class="statistics-item" v-if="playerStats.num180s !== undefined">
-          <div class="label">180s:</div>
-          <div class="value">{{ playerStats.num180s }}</div>
-        </div>
-        <div class="statistics-item" v-if="playerStats.gamesPlayed !== undefined">
-          <div class="label">Games Played:</div>
-          <div class="value">{{ playerStats.gamesPlayed }}</div>
-        </div>
-        <div class="statistics-item" v-if="playerStats.gamesWon !== undefined">
-          <div class="label">Games Won:</div>
-          <div class="value">{{ playerStats.gamesWon }}</div>
-        </div>
-        <div class="statistics-item" v-if="playerStats.winRate !== undefined">
-          <div class="label">Win Rate:</div>
-          <div class="value">{{ playerStats.winRate }}%</div>
-        </div>
+        <C_Content_box v-for="stat in playerStats" :key="stat.stat" :header="stat.stat" :content = "stat.value"></C_Content_box>
       </div>
     </div>
   </template>
@@ -37,14 +14,16 @@
   
   <script>
   import '../../../assets/styles/home-style.css'
+import C_Content_box from '../../global/C_Content_box.vue';
   import LastGamesGraph from '../LastGames/LastGamesGraph.vue';
   export default {
     components:{
-        LastGamesGraph,
-    },
+    LastGamesGraph,
+    C_Content_box
+},
     data() {
       return {
-        playerStats: {},
+        playerStats: [],
         gamePlacements: [],
       };
     },
@@ -54,14 +33,15 @@
     methods: {
       getStats() {
         // Dummy data - replace with actual API calls or data fetching logic
-        this.playerStats = {
-          avgPoints: 45.7,
-          avgDoubleOutRate: 67.5,
-          gamesPlayed: 102,
-          gamesWon: 75,
-          winRate: 73.5,
-          num180s: 12,
-        };
+        this.playerStats = [
+          {stat: "avgPoints", value: "45.7"}, //TODO add Handling for integer
+          {stat: "avgDoubleOutRate", value: "67.5"},
+          {stat: "gamesPlayed", value:"102"},
+          {stat: "gamesWon", value:"75"},
+          {stat: "winRate", value:"73.5"},
+          {stat: "num180s", value:"12"}
+
+        ];
   
         this.gamePlacements = [
         { game: 1, placement: 1, numPlayers: 8 },
