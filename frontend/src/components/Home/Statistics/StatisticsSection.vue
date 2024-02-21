@@ -5,7 +5,7 @@
       <h2 class="Home-Section-Heading">Statistics</h2>
       <!--<LastGamesGraph :gamePlacements="gamePlacements"/>-->
       <div class="statistics-content">
-        <C_Content_box v-for="stat in playerStats" :key="stat.stat" :header="stat.stat" :content = "stat.value"></C_Content_box>
+        <C_Content_box v-for="stat in playerStats" :key="stat.stat" :header="stat.stat" :content = "stat.value" ></C_Content_box>
       </div>
     </div>
   </template>

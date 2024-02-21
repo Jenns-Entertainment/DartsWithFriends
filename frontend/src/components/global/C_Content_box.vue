@@ -5,9 +5,16 @@
                 {{ header }}
             </th>
             <tr>
+                
                 <td class="content">
-                    {{ content }}
+                    {{ content }} 
+                    <div v-show="editable" @click="fn_editContent()">
+                        edit
+                    </div>
                 </td>
+                    
+           
+                
             </tr>
         </table>
     </div>
@@ -19,11 +26,17 @@ export default {
     props: {
         header: String,
         content: String,
+        editable:Boolean,
         width: {
             type: Number,
             default: 250, // Default width if not specified
         },
     },
+    methods: {
+        fn_editContent(){
+            
+        }
+    }
 }
 </script>
 
