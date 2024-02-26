@@ -1,22 +1,5 @@
 <template>
-    <div :style="{ width: `${width}px` }" class="floating-box">
-        <table class="custom-table">
-            <th class="header">
-                {{ header }}
-            </th>
-            <tr>
-                <td class="content">
-                    {{ content }} 
-                    <div v-show="editable" @click="fn_editContent()">
-                        edit
-                    </div>
-                </td>
-                    
-           
-                
-            </tr>
-        </table>
-    </div>
+   <div></div>
 </template>
 
 <script>
