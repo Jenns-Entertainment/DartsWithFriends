@@ -66,6 +66,12 @@
     background-color: white;
   }
 
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+
   .dart-table td{
     padding-left: 10px;
     padding-top: 6px;
