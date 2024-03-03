@@ -66,10 +66,10 @@ export default {
     loadFriends() {
       // Simulate loading friends data from an API or database
       this.friends = [
-        { name: "Swaggerboy", online: true, clicked: false},
-        { name: "Schaumstoff", online: true, clicked: false},
-        { name: "Justus", online: false, clicked: false},
-        { name: "Zebastian", online: false, clicked: false },
+        { name: "Swaggerboy", online: true, clicked: false, id:0},
+        { name: "Schaumstoff", online: true, clicked: false, id:2},
+        { name: "Justus", online: false, clicked: false, id:3},
+        { name: "Zebastian", online: false, clicked: false, id:4 },
       ];
     },
   },

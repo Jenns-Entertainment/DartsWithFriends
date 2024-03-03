@@ -3,15 +3,15 @@
     <table class="dart-table">
       <tr>
         <th class="green-header">{{ currentUser.name }}</th>
-        <th v-if="selectedFriend!=null">Compare</th>
+        <th v-if="selected_friend!=null">Compare</th>
         <th class="green-header" >
-          <select v-model="selectedFriend" class="select-friend">
+          <select v-model="selected_friend" class="select-friend">
             <option :value=null >Select a friend</option>
             <option v-for="friend in friends" :key="friend.id" :value="friend.id">{{ friend.name }}</option>
           </select>
         </th>
       </tr>
-        <CompareStats_tr :chosenfriend="selectedFriend"/>
+        <CompareStats_tr :chosenfriend="selected_friend"/>
     </table>
   </div>
 </template>
@@ -28,22 +28,16 @@ export default {
   data() {
     return {
       friends: [],
-      selectedFriend: 1, //using null throws an error for compareStats_tr.vue
+      selected_friend: 1, //using null throws an error for compareStats_tr.vue
       currentUser :  {
         name: "Emil"
       }
     };
   },
-  /*
-  props:{
-    selectedFriend: {
-      type : Number,
-      default : null
-    }
-  },
-  */
+  
   mounted() {
     this.loadFriends();
+    this.selected_friend = Number(this.$route.params.friendId) || 1;
   },
 
   methods: {
@@ -56,6 +50,7 @@ export default {
         { name: "Zebastian",    id:4 },
       ];
     },
+    
   },
 };
 </script>

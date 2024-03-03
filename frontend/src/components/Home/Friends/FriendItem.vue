@@ -32,11 +32,11 @@
     },
     emits: ["friend-clicked"],
     data() {
-    return {
-      friendsHover: false,
-      selectedFriend: null,
-    };
-  },
+      return {
+        friendsHover: false,
+        selectedFriend: null,
+      };
+    },
     methods: {
       
     closeFriendsHover() {

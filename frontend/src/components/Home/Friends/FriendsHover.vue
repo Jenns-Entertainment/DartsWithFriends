@@ -4,7 +4,7 @@
   <tr>
       <td><button class="table-action-button">View Profile</button></td>
       <td><button class="table-action-button">Challenge</button></td>
-      <td><button class="table-action-button">Compare Statistics</button></td>
+      <td><button class="table-action-button" @click="compare_stats(this.friend.id)">Compare Statistics</button></td>
     </tr>
 </template>
 
@@ -19,9 +19,9 @@ export default {
     },
   },
   methods: {
-    friend_clicked() {
-      this.$emit("view-bnt-clicked");
-    },
+    compare_stats(friendId){
+      this.$router.push({ name: 'Statistics', params:  { friendId } });
+    }
   },
 };
 </script>
