@@ -44,9 +44,9 @@ export default {
     float: left;
     margin: 10px;
     padding: 10px;
-    /*border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9; */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
 }
 
 .custom-table {

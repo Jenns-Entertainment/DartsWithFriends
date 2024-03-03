@@ -74,5 +74,6 @@ select.select-friend {
   box-sizing: border-box;
   background-color: #333;
   color: #fff;
+  text-align: center;
 }
 </style>
