@@ -25,7 +25,7 @@
 <script>
 import FriendsHover from "../components/Home/Friends/FriendsHover.vue";
 import FriendsSection from "../components/Home/Friends/FriendsSection.vue";
-import CreateLobby from "../components/Lobbies/CreateLobby.vue";
+import CreateLobby from "../components/Lobby/CreateLobby.vue";
 import LastGamesSection from "../components/Home/LastGames/LastGamesSection.vue";
 import StatisticsSection from "../components/Home/Statistics/StatisticsSection.vue";
 import '../assets/styles/home-style.css';

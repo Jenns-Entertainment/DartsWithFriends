@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import CreateLobby from "../components/Lobbies/CreateLobby.vue";
+import CreateLobby from "../components/Lobby/CreateLobby.vue";
 import { useLobbyStore } from "../stores/lobby";
 
 export default {

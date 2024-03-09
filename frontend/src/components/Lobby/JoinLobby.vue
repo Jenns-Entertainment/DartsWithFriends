@@ -29,7 +29,7 @@
 <script>
   import C_btn from "@/components/global/C_btn.vue";
   import C_txtField from "@/components/global/C_txtField.vue";
-  import C_Header from "../global/C_Header.vue";
+import C_Header from "../global/C_Header.vue";
   export default {
       name: "JoinGame",
     components: { C_txtField, C_btn, C_Header },
