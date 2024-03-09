@@ -57,12 +57,12 @@ const router = createRouter({
     {
       path: '/createLobby',
       name: 'CreateLobby',
-      component: () => import('../components/Lobby/CreateLobby.vue')
+      component: () => import('../components/Lobbies/CreateLobby.vue')
     },
     {
       path: '/JoinLobby',
       name: 'JoinLobby',
-      component: () => import('../components/Lobby/JoinLobby.vue')
+      component: () => import('../components/Lobbies/JoinLobby.vue')
     },
     {
       path: '/imprint',
