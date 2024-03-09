@@ -13,16 +13,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="player in this.lobby.players" :key="player.player_id">
-            <td>{{ player.player_name }}</td>
-            <td>{{ player.score }}</td>
-            <td>{{ player.sets }}</td>
-            <td>{{ player.legs }}</td>
-            <td>
-              <span v-if="player.isCurrentUser && player.isCurrentTurn">&#8226;</span>
-              <button v-else-if="player.isCurrentUser" @click="playTurn" class="play-button wider">Play</button>
-            </td>
-          </tr>
+          <PlayerList :player="lobby.players"/>
         </tbody>
       </table>
     </div>
@@ -43,11 +34,13 @@
 
 <script>
 import CreateLobby from "../components/Lobby/CreateLobby.vue";
+import PlayerList from "../components/Lobby/PlayerList.vue";
 import { useLobbyStore } from "../stores/lobby";
 
 export default {
   components: {
     CreateLobby,
+    PlayerList
   },
   mounted() {
     const lobbyStore = useLobbyStore();
