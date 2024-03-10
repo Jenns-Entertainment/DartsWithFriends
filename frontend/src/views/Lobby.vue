@@ -13,7 +13,7 @@
           </tr>
         </thead>
         <tbody>
-          <PlayerList :player="lobby.players"/>
+          <PlayerList :players="lobby.players"/>
         </tbody>
       </table>
     </div>

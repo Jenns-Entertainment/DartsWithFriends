@@ -105,6 +105,7 @@ export default {
     fn_fillLobyStore(){
       const lobbyStore = useLobbyStore();
       lobbyStore.lobby = this.lobby;
+      lobbyStore.createLobby(this.lobby)
     },
     fn_init_changeLobbyView(){
       const lobbyStore = useLobbyStore();

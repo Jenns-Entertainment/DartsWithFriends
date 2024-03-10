@@ -9,6 +9,7 @@ export default {
          lobby
       })
     };
+    this.$router.push({ name: 'Lobby'})
     return fetch(url,requestOptions)
         .then(() => { return true })
         .catch(() => { return false })
