@@ -52,8 +52,8 @@ export default {
     return {
       lobby: {
         players: [
-        { player_id: 1, Player_name: "Player 1", score: 501, sets: 1, legs: 2, isCurrentUser: true, isCurrentTurn: true },
-        { player_id: 2, player_name: "Player 2", score: 450, sets: 0, legs: 2, isCurrentUser: false, isCurrentTurn: false },
+        { player_id: 1, Player_name: "Player 1", score: 501, sets: 1, legs: 2, isCurrentUser: true, isCurrentTurn: true ,status:"ready"},
+        { player_id: 2, player_name: "Player 2", score: 450, sets: 0, legs: 2, isCurrentUser: false, isCurrentTurn: false, status:"ready" },
         // Add more players as needed
       ],
       },

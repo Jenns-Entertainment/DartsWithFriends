@@ -10,23 +10,37 @@
             </td>
     </tr>
     <tr>
-      <td @click="fn_invife_friend()"  :colspan="5">Invite Friend</td>
+      <td @click="fn_open_InviteFriends()"  :colspan="5">Invite Friend</td>
     </tr>
+    <div>
+      <InviteFriend_Modal v-if="show_InviteFriends" @close-modal="fn_close_InviteFriends"></InviteFriend_Modal>
+    </div>
 </template>
 
 
 <script>
+import InviteFriend_Modal from './InviteFriend_Modal.vue';
+
 export default {
     name: "PlayerList",
         props: {
             players: [Object]
         },
     methods: {
-      fn_invife_friend(){
-        
+      fn_close_InviteFriends(){
+        this.show_InviteFriends = false;
+      },
+      fn_open_InviteFriends(){
+        this.show_InviteFriends = true;
       }
 
     },
+    data(){
+          return{
+            show_InviteFriends: false
+          }
+        },
+    components:{InviteFriend_Modal}
     //emits: ['join-lobby']
 }
 
