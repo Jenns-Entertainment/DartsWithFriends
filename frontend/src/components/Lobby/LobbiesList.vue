@@ -1,6 +1,5 @@
 <template>
   <div>
-      <!--<LobbyPreview :lobby="lobby" @join-lobby="$emit('join-lobby', lobby)"/> -->
       <table class="dart-table">
           <tr>
               <th>Lobby Name</th>
@@ -19,7 +18,6 @@
 
 <script>
 import Lobby from '../../views/Lobby.vue';
-import LobbyPreview from './LobbyPreview.vue';
 import '../../assets/styles/table-styles.css'
 import LobbieListItem from './LobbieListItem.vue';
 import { useLobbyStore } from '../../stores/lobby';
@@ -98,7 +96,7 @@ export default {
   mounted() {
       this.loadLobbies();
   },
-  components: { Lobby, LobbyPreview, LobbieListItem },
+  components: { Lobby, LobbieListItem },
   emits: ['join-lobby']
 }
 </script>
