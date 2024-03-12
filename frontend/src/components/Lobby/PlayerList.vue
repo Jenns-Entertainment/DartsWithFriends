@@ -1,14 +1,5 @@
 <template>
-    <tr v-for="player in this.players" :key="player.player_id">
-            <td>{{ player.player_name }}</td>
-            <td>{{ player.score }}</td>
-            <td>{{ player.sets }}</td>
-            <td>{{ player.legs }}</td>
-            <td>
-              <span v-if="player.isCurrentUser && player.isCurrentTurn">&#8226;</span>
-              <button v-else-if="player.isCurrentUser" @click="playTurn" class="play-button wider">Play</button>
-            </td>
-    </tr>
+  <Player_List_Item v-for="player in this.players" :key="player.player_id" :player ="player"/>
     <tr>
       <td @click="fn_open_InviteFriends()"  :colspan="5">Invite Friend</td>
     </tr>
@@ -20,6 +11,7 @@
 
 <script>
 import InviteFriend_Modal from './InviteFriend_Modal.vue';
+import Player_List_Item from './Player_List_Item.vue';
 
 export default {
     name: "PlayerList",
@@ -40,7 +32,7 @@ export default {
             show_InviteFriends: false
           }
         },
-    components:{InviteFriend_Modal}
+    components:{InviteFriend_Modal,Player_List_Item}
     //emits: ['join-lobby']
 }
 

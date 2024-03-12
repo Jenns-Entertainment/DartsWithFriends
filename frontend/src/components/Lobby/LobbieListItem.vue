@@ -11,8 +11,10 @@
 
 
 <script>
+
 export default {
   name: "LobbyListItem",
+  components:{},
   props: {
     lobby: {
         type: Object,

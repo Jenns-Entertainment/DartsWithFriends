@@ -9,9 +9,7 @@
               <th>Status</th>
               <th></th>
           </tr>
-          
-            <LobbieListItem v-for="lobby in lobbies" :key="lobby.name" :lobby="lobby" @join-lobby="fn_joinLobby(lobby)"/>
-        
+          <LobbieListItem v-for="lobby in lobbies" :key="lobby.name" :lobby="lobby" @join-lobby="fn_joinLobby(lobby)"/>
       </table>
   </div>
 </template>
