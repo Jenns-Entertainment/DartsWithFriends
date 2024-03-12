@@ -105,7 +105,7 @@ export default {
 
 .play-button,
 .copy-button {
-  background-color: #259929;
+  background-color: #2b742d;
   color: white;
   border: none;
   border-radius: 5px;
@@ -137,7 +137,7 @@ export default {
 }
 
 .primary {
-  background-color: #259929;
+  background-color: #2b742d;
   color: white;
 }
 </style>

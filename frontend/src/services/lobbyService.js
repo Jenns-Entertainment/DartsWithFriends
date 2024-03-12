@@ -9,9 +9,9 @@ export default {
          lobby
       })
     };
-    this.$router.push({ name: 'Lobby'})
+    //this.$router.push({ name: 'Lobby'})
     return fetch(url,requestOptions)
-        .then(() => { return true })
+        .then((lobby_id) => { return lobby_id })
         .catch(() => { return false })
   },
   loadLobbyDetails (lobby_id){

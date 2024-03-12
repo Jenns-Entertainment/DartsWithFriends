@@ -90,6 +90,10 @@ export default {
       this.fn_readFormData(e);
       this.fn_fillLobyStore();
       //backend connection to create the lobby fn_backend_createLobby(lobbyStore.lobby)
+
+
+      //backend call this.lobby_id = create_Lobby(this.lobby)
+      //globalStore.set_lobby_id(lobby_id)
       this.$router.push({ name: 'Lobby'})
       
 
