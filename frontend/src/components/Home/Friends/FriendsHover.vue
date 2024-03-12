@@ -1,11 +1,13 @@
-<!-- FriendsHover.vue -->
-
 <template>
   <tr>
-      <td><button class="table-action-button">View Profile</button></td>
-      <td><button class="table-action-button">Challenge</button></td>
-      <td><button class="table-action-button" @click="compare_stats(this.friend.id)">Compare Statistics</button></td>
-    </tr>
+    <td colspan="3" >
+      <div class="horizontal-line">
+        <button class="table-action-button">View Profile</button>
+        <button class="table-action-button">Challenge</button>
+        <button class="table-action-button" @click="compare_stats(friend.id)">Compare Stats</button>
+      </div>
+    </td>
+  </tr>
 </template>
 
 <script>
@@ -27,5 +29,16 @@ export default {
 </script>
 
 <style scoped>
+.horizontal-line {
+  display: flex;
+  align-items: center;
+  height: 30%;
+}
 
+.horizontal-line button {
+  margin-right: 5px; /* Adjust the spacing between buttons as needed */
+  color: #ffffff;
+}
+
+/* Add your other styles here */
 </style>
