@@ -40,13 +40,19 @@
       // Dummy data - replace with actual API calls or data fetching logic
       this.lastGames = [
         { name: "Spiel von Schaumig", status: "active", rank: 1 },
-        { name: "Team Paderborn", status: "completed 2nd place", rank: 2 },
-        { name: "Team Paderborn", status: "completed 2nd place", rank: 2 },
-        { name: "Team Paderborn", status: "completed 2nd place", rank: 2 },
-        { name: "Team Paderborn", status: "completed 2nd place", rank: 2 },
+        { name: "Team Paderborn", status: "completed", rank: 2 },
+        { name: "Team Paderborn", status: "invited", rank: 2 },
+        { name: "Team Paderborn", status: "completed", rank: 2 },
+        { name: "Spiel von Schaumig", status: "invited", rank: 1 },
+        { name: "Team Paderborn", status: "completed", rank: 2 },
         { name: "Spiel von Schaumig", status: "active", rank: 1 },
         // ... other last game entries ...
       ];
+
+      this.lastGames.sort((a, b) => {
+        const statusOrder = { active: 1, invited: 2, completed: 3 };
+        return statusOrder[a.status] - statusOrder[b.status];
+      });
 
       this.gamePlacements = [
         { game: 1, placement: 1, numPlayers: 8,},

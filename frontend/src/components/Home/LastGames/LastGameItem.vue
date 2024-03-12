@@ -24,7 +24,7 @@
         if (this.game.status === "active") {
           // Handle action for active game (e.g., join the game)
           alert(`Joining game: ${this.game.name}`);
-        } else if (this.game.status === "completed") {
+        } else if (this.game.status == "completed") {
           // Handle action for completed game (e.g., view results)
           alert(`Viewing results for game: ${this.game.name}`);
         }
@@ -32,11 +32,28 @@
   
       getButtonLabel() {
         // Determine the button label based on the game status
-        return this.game.status === "active" ? "Play in Game" : "View Results";
+        if(this.game.status == "active"){
+          return "Play"
+        }else if(this.game.status == "completed"){
+          return "View Results"
+        }else if(this.game.status == "invited"){
+          return "Join"
+        }else{
+          return "Unknown"
+        }
+        
       },
       getButtonClass() {
-      // Determine the button class based on the game status
-      return this.game.status === "active" ? "table-action-button" : "table-view-button";
+
+        if(this.game.status == "active"){
+          return "table-action-button"
+        }else if(this.game.status == "completed"){
+          return "table-cancel-button"
+        }else if(this.game.status == "invited"){
+          return "table-view-button"
+        }else{
+          return "Unknown"
+        }
     },
     },
   };
