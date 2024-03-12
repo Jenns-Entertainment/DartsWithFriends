@@ -7,7 +7,6 @@
           <tr>
               <th >Status</th>
               <th >Name</th>
-              <th></th>
           </tr>
           <FriendItem
               v-for="friend in this.friends"
@@ -86,11 +85,9 @@ export default {
 }
 
 .dart-table th:nth-child(2) {
-  width: 30%; /* Adjust the width of the second column */
+  width: 70%; /* Adjust the width of the second column */
 }
 
-.dart-table th:nth-child(3) {
-  width: 40%; /* Adjust the width of the third column */
-}
+
 
 </style>

@@ -4,7 +4,6 @@
       <tr @click="toggleFriendsHover" class="dart-table">
         <td><span :class="{ 'online-circle': friend.online, 'offline-circle': !friend.online }"></span></td>
         <td>{{ friend.name }}</td>
-        <td></td>
       </tr>
       
         <!-- here add the FriendHover stuff-->
