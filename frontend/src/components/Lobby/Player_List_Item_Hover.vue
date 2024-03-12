@@ -4,7 +4,8 @@
         <div class="horizontal-line">
           <button class="table-warning-button">Report</button>
           <button class="table-warning-button">Kick</button>
-          <button class="table-action-button" @click="compare_stats(player.id)">Compare Stats</button>
+          <button class="table-view-button" @click="compare_stats(player.id)">Compare Stats</button>
+          <button class="table-view-button" @click="compare_stats(player.id)">Add Friend</button>
         </div>
       </td>
     </tr>
@@ -54,6 +55,8 @@
   }
 
 .table-action-button,
+.table-view-button,
+.table-cancel-button
 .table-warning-button {
     color: #ffffff;
     width: 100%; /* change this value so the buttons appear smaller */

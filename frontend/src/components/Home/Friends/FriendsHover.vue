@@ -54,6 +54,8 @@ th, td {
   }
 
 .table-action-button,
+.table-view-button,
+.table-cancel-button
 .table-warning-button {
     color: #ffffff;
     width: 100%; /* change this value so the buttons appear smaller */
