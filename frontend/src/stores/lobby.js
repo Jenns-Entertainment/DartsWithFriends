@@ -1,5 +1,6 @@
 // lobby.js
 import { defineStore } from 'pinia';
+import LobbyService from "@/services/lobbyService.js"
 
 export const useLobbyStore = defineStore('lobby',  {
   state: () => {
@@ -26,6 +27,9 @@ export const useLobbyStore = defineStore('lobby',  {
   actions: {
     setLobby(lobby) {
       this.lobby = lobby;
+    },
+    async updateLobby() {
+      this.currentUser = await LobbyService.getCurrentSpieler()
     },
     appendPlayer(player) {
       this.lobby.players.push(player);
