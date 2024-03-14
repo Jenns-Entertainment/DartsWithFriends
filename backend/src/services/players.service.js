@@ -1,5 +1,7 @@
 const db = require('./db.service');
 const Player = require('../data/player.data');
+const crypto = require("crypto");
+
 
 async function create(player){
     const result = await db.query(
@@ -79,9 +81,33 @@ async function update(id, player){
     return {message};
 }
 
+async function remove(id){
+
+    let mail = crypto.randomBytes(10).toString('hex') + "@deleted.de";
+
+    // TODO: Pass new password through hash function
+    let password = crypto.randomBytes(20).toString('hex');
+
+    const result = await db.query(
+        `UPDATE player
+         SET player.email=?, player.nickname='player_deleted', password=?
+         WHERE pk_player_id=?`,
+        [mail, password, id]
+    );
+
+    let message = 'Error in deleting player';
+
+    if (result.affectedRows) {
+        message = 'Player deleted successfully';
+    }
+
+    return {message};
+}
+
 module.exports = {
     create,
     get_by_email,
     get_by_id,
-    update
+    update,
+    remove
 }

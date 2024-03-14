@@ -6,5 +6,6 @@ const playerController = require('../controllers/player.controller');
 router.post('/', playerController.create);
 router.get('/', playerController.get);
 router.put('/:id', playerController.update);
+router.delete('/:id', playerController.remove);
 
 module.exports = router;

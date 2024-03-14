@@ -36,8 +36,18 @@ async function update(req, res, next) {
     }
 }
 
+async function remove(req, res, next) {
+    try {
+        res.json(await players.remove(req.params.id));
+    } catch (err) {
+        console.error(`Error while removing player`, err.message);
+        next(err);
+    }
+}
+
 module.exports = {
     create,
     get,
-    update
+    update,
+    remove
 };
