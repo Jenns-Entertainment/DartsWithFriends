@@ -29,9 +29,11 @@ export const useLobbyStore = defineStore('lobby',  {
     setLobby(lobby) {
       this.lobby = lobby;
     },
-    async updateLobby() {
+    async load_lobby_data() {
       const globalStore = useGlobalStore();
-      this.lobby = await LobbyService.loadLobbyDetails(globalStore.current_lobby_id)
+      console.log(globalStore.current_lobby_id);
+      this.lobby = await LobbyService.fn_load_lobby_details(globalStore.current_lobby_id)
+      console.log(this.lobby);
     },
     appendPlayer(player) {
       this.lobby.players.push(player);

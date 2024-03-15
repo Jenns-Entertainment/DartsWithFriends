@@ -35,6 +35,7 @@
 <script>
 import CreateLobby from "../components/Lobby/CreateLobby.vue";
 import PlayerList from "../components/Lobby/PlayerList.vue";
+import { useGlobalStore } from "../stores/AppItems";
 import { useLobbyStore } from "../stores/lobby";
 
 export default {
@@ -43,26 +44,25 @@ export default {
     PlayerList
   },
   mounted() {
+    const globalStore = useGlobalStore();
     const lobbyStore = useLobbyStore();
-    this.lobby= lobbyStore.lobby;
+    this.lobby= lobbyStore.load_lobby_data(globalStore.current_lobby_id);
     console.log(this.lobby)
     // call Backend Load Players for this Lobby 
   },
   data() {
     return {
-      lobby: {
-        players: [
-        { player_id: 1, Player_name: "Player 1", score: 501, sets: 1, legs: 2, isCurrentUser: true, isCurrentTurn: true ,status:"ready"},
-        { player_id: 2, player_name: "Player 2", score: 450, sets: 0, legs: 2, isCurrentUser: false, isCurrentTurn: false, status:"ready" },
-        // Add more players as needed
-      ],
-      },
+      lobby: {},
       showCreateLobby: false,
     };
   },
   methods: {
     openCreateLobbyDialog() {
-      this.showCreateLobby = true;
+      //this.showCreateLobby = true;
+      const globalStore = useGlobalStore();
+      const lobbyStore = useLobbyStore();
+      this.lobby= lobbyStore.load_lobby_data(globalStore.current_lobby_id);
+      console.log(this.lobby)
     },
     playTurn() {
       // Implement play turn action

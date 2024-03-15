@@ -1,8 +1,8 @@
 <template>
-            <tr>
+            <tr v-if="lobby.private===false">
               <td>{{ lobby.name }}</td>
               <td>{{ fn_return_ruleset(lobby.ruleset) }}</td>
-              <td>{{ lobby.private ? 'Public' : 'Private'}}</td>
+              <!--<td>{{ lobby.private ? 'Private' : 'Public'}}</td>-->
               <td>{{ lobby.amtPlayers }}</td>
               <td>{{ lobby.status }}</td>
               <td><button @click="fn_joinLobby(lobby)" class="table-action-button ">Join</button></td>
