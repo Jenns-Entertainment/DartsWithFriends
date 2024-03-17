@@ -34,7 +34,7 @@ export default {
     fn_joinLobby(p_lobby) {
       const globalStore = useGlobalStore();
       globalStore.current_lobby_id = p_lobby.id
-      console.log(globalStore.current_lobby_id);
+      //console.log(globalStore.current_lobby_id);
       //const lobbyStore = useLobbyStore();
       //lobbyStore.setLobby(p_lobby);
       this.$router.push({ name: 'Lobby', params: { lobbyCode: p_lobby.lobbyCode } });

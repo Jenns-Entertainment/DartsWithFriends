@@ -1,6 +1,6 @@
 <template>
-    <tr class="dart-table" v-for="(stat,index) in currentUserStatsList" :key="stat.stat"> 
-        <td>
+    <tr class="dart-table" v-for="(stat,index) in currentUserStatsList" :key="stat.stat" > 
+        <td :colspan="fn_get_colspan()">
           <div class="center_tabledata">
             <C_Content_box  :content="String(currentUserStatsList[index].value)" :header="stat.stat" />
           </div>
@@ -85,6 +85,11 @@ export default {
             return null;
         }
     },
+    fn_get_colspan(){
+      if(this.chosenfriend==null){
+        return 3;
+      }
+    }
   },
 };
 </script>

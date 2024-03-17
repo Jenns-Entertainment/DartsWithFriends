@@ -1,7 +1,7 @@
 <template>
     <tr @click="this.showHover = !this.showHover">
-            <td>{{ player.player_name }}</td>
-            <td>{{ player.score }}</td>
+            <td>{{ player.name }}</td>
+            <td>{{ player.points_left }}</td>
             <td>{{ player.sets }}</td>
             <td>{{ player.legs }}</td>
             <td>

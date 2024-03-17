@@ -5,7 +5,10 @@ export const useGlobalStore = defineStore('global',  {
     return {
         prevPage: String,
         nextPage: String,
-        current_lobby_id: Number,
+        current_lobby_id:{
+          type : Number,
+          default : 1
+        },
         current_user_id: Number,
     }
   },
