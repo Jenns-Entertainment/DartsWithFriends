@@ -7,7 +7,7 @@
         <th class="green-header" >
           <select v-model="selected_friend" class="select-friend">
             <option :value=null >Select a friend</option>
-            <option v-for="friend in friends" :key="friend.id" :value="friend.id">{{ friend.name }}</option>
+            <option v-for="friend in friends" :key="friend.userid" :value="friend.userid">{{ friend.name }}</option>
           </select>
         </th>
       </tr>
@@ -39,33 +39,36 @@ export default {
   },
   
   mounted() {
-    this.loadFriends();
+    this.friends = this.fn_loadFriends();
+    this.fn_loadFriendsNames();
     const statisticsStore = useStatisticsStore();
     this.selected_friend = statisticsStore.compare_user_id || 1;
   },
 
   methods: {
-    loadFriends() {
+    fn_loadFriends() {
       // Simulate loading friends data from an API or database
       const globalStore = useGlobalStore();
-      console.log(globalStore.current_user_id);
-      for(const user in users){
-        console.log(user.userid);
-        if(user.userid == globalStore.current_user_id){
-          this.friends = user.friends
+      //console.log(globalStore.current_user_id);
+      for(let i=0;i<users.length;i++){
+        if(users[i].userid == globalStore.current_user_id){
+          return users[i].friends;
         }
       }
-      console.log(this.friends);
-      for(const friend in this.friends){
-        for(const user in users){
-          if(user.userid = friend.userid){
-            friend.name = user.username
-          }
-        }
-      }
-      console.log(this.friends);
       
     },
+    fn_loadFriendsNames() {
+      console.log(this.friends);
+      this.friends.forEach(friend => {
+        users.forEach(user => {
+          if (friend.userid === user.userid) {
+            friend.name = user.username;
+          }
+        });
+      });
+}
+
+
     
   },
 };
