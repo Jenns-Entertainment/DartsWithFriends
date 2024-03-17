@@ -13,6 +13,7 @@
 <script>
 import '../../../assets/styles/home-style.css'
 import '../../../assets/styles/table-styles.css'
+import { useStatisticsStore } from '../../../stores/PageStores/Statistics';
 export default {
   props: {
     friend: {
@@ -22,7 +23,9 @@ export default {
   },
   methods: {
     compare_stats(friendId){
-      this.$router.push({ name: 'Statistics', params:  { friendId } });
+      const statisticsStore = useStatisticsStore();
+      statisticsStore.compare_user_id = friendId;
+      this.$router.push({ name: 'Statistics'});
     }
   },
 };

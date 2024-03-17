@@ -4,7 +4,7 @@
       "amtPlayers": 3,
       "private": false,
       "lobbyCode": "12345",
-      "status": "started",
+      "status": 1,  
       "ruleset": 1,
       "id": 1,
       "cur_turn_pos":2,
@@ -37,7 +37,7 @@
       "amtPlayers": 4,
       "private": false,
       "lobbyCode": "12345",
-      "status": "started",
+      "status": "0",
       "ruleset": 0,
       "id": 2
     },
@@ -46,7 +46,7 @@
       "amtPlayers": 1,
       "private": false,
       "lobbyCode": "12345",
-      "status": "started",
+      "status": "0",
       "ruleset": 1,
       "id": 3
     },
@@ -55,7 +55,7 @@
       "amtPlayers": 2,
       "private": false,
       "lobbyCode": "12345",
-      "status": "started",
+      "status": "1",
       "ruleset": 1,
       "id": 4
     },
@@ -64,7 +64,7 @@
       "amtPlayers": 3,
       "private": true,
       "lobbyCode": "22222",
-      "status": "started",
+      "status": "0",
       "ruleset": 1,
       "id": 5
     },
@@ -73,7 +73,7 @@
       "amtPlayers": 2,
       "private": true,
       "lobbyCode": "11111",
-      "status": "started",
+      "status": "2",
       "ruleset": 1,
       "id": 6
     }

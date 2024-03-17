@@ -19,6 +19,9 @@
 <script>
 import CompareStats_tr from "../components/Statistics/compareStats_tr.vue";
 import C_Content_box from "../components/global/C_Content_box.vue";
+import { useStatisticsStore } from "../stores/PageStores/Statistics";
+import users from "../assets/data/SampleData/users.json"
+import { useGlobalStore } from "../stores/AppItems";
 
 export default {
   components: {
@@ -37,18 +40,31 @@ export default {
   
   mounted() {
     this.loadFriends();
-    this.selected_friend = Number(this.$route.params.friendId) || 1;
+    const statisticsStore = useStatisticsStore();
+    this.selected_friend = statisticsStore.compare_user_id || 1;
   },
 
   methods: {
     loadFriends() {
       // Simulate loading friends data from an API or database
-      this.friends = [
-        { name: "Swaggerboy",   id:0 },
-        { name: "Schaumstoff",  id:2 },
-        { name: "Justus",       id:3 },
-        { name: "Zebastian",    id:4 },
-      ];
+      const globalStore = useGlobalStore();
+      console.log(globalStore.current_user_id);
+      for(const user in users){
+        console.log(user.userid);
+        if(user.userid == globalStore.current_user_id){
+          this.friends = user.friends
+        }
+      }
+      console.log(this.friends);
+      for(const friend in this.friends){
+        for(const user in users){
+          if(user.userid = friend.userid){
+            friend.name = user.username
+          }
+        }
+      }
+      console.log(this.friends);
+      
     },
     
   },

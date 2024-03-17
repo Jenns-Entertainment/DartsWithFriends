@@ -80,10 +80,9 @@ const router = createRouter({
       component: () => import('../views/Settings.vue')
     },
     {
-      path: '/Statistics/:friendId',
+      path: '/Statistics',
       name: 'Statistics',
       component: () => import('../views/Statistics.vue'),
-      props: true, // Allows passing route params as component props
     },
   ]
 })

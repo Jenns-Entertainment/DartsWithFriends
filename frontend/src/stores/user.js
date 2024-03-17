@@ -11,7 +11,7 @@ export const useUserStore = defineStore('user',  {
   actions: {
     async updatePlayer() {
       this.currentUser = await PlayerService.getCurrentSpieler()
-      this.currentUserGames = await PlayerService.getCurrentSpielerGames()
+      //this.currentUserGames = await PlayerService.getCurrentSpielerGames()
     }
   },
 })
