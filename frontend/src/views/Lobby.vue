@@ -47,10 +47,13 @@ export default {
   },
   mounted() {
     //const globalStore = useGlobalStore();
-    const lobbyStore = useLobbyStore();
-    this.lobby = this.fn_import_lobby_data(); // this will be replaced for a mid-term solution 
+    //this.lobby = this.fn_import_lobby_data(); // this will be replaced for a mid-term solution 
     //console.log(this.lobby.players);
-    this.fn_import_player_data();
+    const lobbyStore = useLobbyStore();
+    lobbyStore.load_lobby_data();
+    this.lobby= lobbyStore.lobby;
+    
+    //this.fn_import_player_data();
     // this.lobby= lobbyStore.load_lobby_data(); 
     //console.log(this.lobby)
     // call Backend Load Players for this Lobby 
@@ -77,6 +80,10 @@ export default {
       }
     },
     fn_import_lobby_data(){
+      const lobbyStore = useLobbyStore();
+      lobbyStore.load_lobby_data();
+      return lobbyStore.lobby;
+      /*
       const globalStore = useGlobalStore();
       for (const lobby of lobbys) {
           if (lobby.id === globalStore.current_lobby_id) {
@@ -85,6 +92,7 @@ export default {
           }
       }
       return null;
+      */
     },
     fn_import_player_data(){
       for (const player of this.lobby.players){
