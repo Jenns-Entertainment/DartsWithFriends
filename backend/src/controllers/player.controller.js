@@ -15,6 +15,22 @@ async function register(req, res, next) {
     }
 }
 
+async function login(req, res, next) {
+    try {
+        let player = await players.get_by_email(req.body.email)
+        if (await argon2.verify(player.password, req.body.password)) {
+            // password match
+            // return http 200
+        } else {
+            // return http unauthorized
+            // password did not match
+        }
+    } catch (err) {
+        console.error(`Error while logging in`, err.message);
+        next(err);
+    }
+}
+
 async function get(req, res, next) {
     try {
         if(req.query.id !== undefined){
