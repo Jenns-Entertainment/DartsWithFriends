@@ -49,11 +49,12 @@ export default {
     //const globalStore = useGlobalStore();
     //this.lobby = this.fn_import_lobby_data(); // this will be replaced for a mid-term solution 
     //console.log(this.lobby.players);
+
     const lobbyStore = useLobbyStore();
     lobbyStore.load_lobby_data();
     this.lobby= lobbyStore.lobby;
     
-    //this.fn_import_player_data();
+    this.fn_import_player_data();
     // this.lobby= lobbyStore.load_lobby_data(); 
     //console.log(this.lobby)
     // call Backend Load Players for this Lobby 

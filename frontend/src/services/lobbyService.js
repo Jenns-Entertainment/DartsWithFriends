@@ -14,7 +14,7 @@ export default {
         .then((lobby_id) => { return lobby_id })
         .catch(() => { return false })
   },
-  async fn_load_lobby_details (lobby_id){
+  fn_load_lobby_details (lobby_id){
       for (const lobby of lobbys) {
           if (lobby.id === lobby_id) {
             console.log(lobby)

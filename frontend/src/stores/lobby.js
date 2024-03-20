@@ -12,9 +12,9 @@ export const useLobbyStore = defineStore('lobby',  {
     };
   },
   actions: {
-    async load_lobby_data() {
+    load_lobby_data() {
       const globalStore = useGlobalStore();
-      this.lobby = await LobbyService.fn_load_lobby_details(globalStore.current_lobby_id)
+      this.lobby = LobbyService.fn_load_lobby_details(globalStore.current_lobby_id)
     },
   },
 });
