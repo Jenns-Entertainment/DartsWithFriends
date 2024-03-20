@@ -37,7 +37,7 @@ export default {
       //console.log(globalStore.current_lobby_id);
       //const lobbyStore = useLobbyStore();
       //lobbyStore.setLobby(p_lobby);
-      this.$router.push({ name: 'Lobby', params: { lobbyCode: p_lobby.lobbyCode } });
+      this.$router.push({ name: 'Lobby' });
     },
       loadLobbies() {
           // Assuming you have a Vuex getter named getLobbies

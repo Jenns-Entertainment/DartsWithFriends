@@ -23,7 +23,7 @@
       <h2 class="lobby-name">{{ lobby.name }}</h2>
       <p class="info-text">Best of {{ lobby.sets }} sets</p>
       <p class="info-text">Best of {{ lobby.legs }} legs</p>
-      <button @click="openCreateLobbyDialog" class="action-button primary">Game Rules</button>
+      <button @click="this.showCreateLobby = true" class="action-button primary">Game Rules</button>
       <button @click="copyURL" class="action-button copy-button">Copy URL</button>
     </div>
 
@@ -35,10 +35,8 @@
 <script>
 import CreateLobby from "../components/Lobby/CreateLobby.vue";
 import PlayerList from "../components/Lobby/PlayerList.vue";
-import { useGlobalStore } from "../stores/AppItems";
 import { useLobbyStore } from "../stores/lobby";
-import lobbys from "../assets/data/SampleData/lobbys.json";
-import users from "../assets/data/SampleData/users.json"
+
 
 export default {
   components: {
@@ -46,18 +44,9 @@ export default {
     PlayerList
   },
   mounted() {
-    //const globalStore = useGlobalStore();
-    //this.lobby = this.fn_import_lobby_data(); // this will be replaced for a mid-term solution 
-    //console.log(this.lobby.players);
-
     const lobbyStore = useLobbyStore();
     lobbyStore.load_lobby_data();
     this.lobby= lobbyStore.lobby;
-    
-    this.fn_import_player_data();
-    // this.lobby= lobbyStore.load_lobby_data(); 
-    //console.log(this.lobby)
-    // call Backend Load Players for this Lobby 
   },
   data() {
     return {
@@ -66,9 +55,6 @@ export default {
     };
   },
   methods: {
-    openCreateLobbyDialog() {
-      this.showCreateLobby = true;
-    },
     playTurn() {
       // Implement play turn action
       alert('Play Turn clicked');
@@ -80,38 +66,6 @@ export default {
         alert('Cannot copy');
       }
     },
-    fn_import_lobby_data(){
-      const lobbyStore = useLobbyStore();
-      lobbyStore.load_lobby_data();
-      return lobbyStore.lobby;
-      /*
-      const globalStore = useGlobalStore();
-      for (const lobby of lobbys) {
-          if (lobby.id === globalStore.current_lobby_id) {
-            console.log(lobby)
-              return lobby;
-          }
-      }
-      return null;
-      */
-    },
-    fn_import_player_data(){
-      for (const player of this.lobby.players){
-        console.log(player.userid);
-        for( const user of users){
-          if(user.userid == player.userid){
-            console.log(player);
-            console.log(user);
-            player.name = user.username;
-          }
-        }
-      }
-      console.log(this.lobby.players)
-    }
-  },
-  created() {
-    // Implement async created functionality
-    // For example, fetch data or perform asynchronous operations
   },
 };
 </script>

@@ -9,7 +9,7 @@
               <button v-else-if="player.isCurrentUser" @click="playTurn" class="play-button wider">Play</button>
             </td>
     </tr>
-    <Player_List_Item_Hover v-if="this.showHover"/>
+    <Player_List_Item_Hover v-if="this.showHover" :player = "player"/>
     
 </template>
 
