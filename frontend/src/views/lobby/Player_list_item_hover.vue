@@ -65,4 +65,4 @@
   
   /* Add your other styles here */
   </style>
-  
+  ./Player_list_item_hover.vue

@@ -40,8 +40,8 @@
 import C_btn from "@/components/global/C_btn.vue";
 import LoginService from "@/services/LoginService.js";
 import router from "@/router";
-import C_txtField from "../components/global/C_txtField.vue";
-import C_Header from "../components/global/C_Header.vue";
+import C_txtField from "@/components/global/C_txtField.vue";
+import C_Header from "@/components/global/C_Header.vue";
 export default {
   components: { C_btn, C_txtField, C_Header },
   data () {

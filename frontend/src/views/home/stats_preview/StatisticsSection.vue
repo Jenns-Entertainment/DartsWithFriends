@@ -14,11 +14,9 @@
   
   <script>
   import '../../../assets/styles/home-style.css'
-import C_Content_box from '../../global/C_Content_box.vue';
-  import LastGamesGraph from '../LastGames/LastGamesGraph.vue';
+import C_Content_box from '../../../components/global/C_Content_box.vue';
   export default {
     components:{
-    LastGamesGraph,
     C_Content_box
 },
     data() {

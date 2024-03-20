@@ -16,10 +16,9 @@
 </template>
 
 <script>
-import LobbiesList from '../components/Lobby/LobbiesList.vue';
-import CreateLobby from '../components/Lobby/CreateLobby.vue';
-import { useGlobalStore } from '../stores/AppItems';
-import { useLobbyStore } from '../stores/lobby';
+import LobbiesList from './Lobbies_list.vue';
+import CreateLobby from './Create_lobby.vue';
+import { useGlobalStore } from '../../stores/AppItems';
 
 export default {
   name: "Lobbies",

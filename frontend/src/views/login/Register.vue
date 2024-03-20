@@ -56,7 +56,7 @@ import C_btn from "@/components/global/C_btn.vue";
 import NavLink from "@/components/navbar/NavLink.vue";
 import RegisterService from "@/services/RegisterService.js";
 import router from "@/router";
-import C_Header from "../components/global/C_Header.vue";
+import C_Header from "@/components/global/C_Header.vue";
 
 export default {
   components: {C_btn, C_txtField, NavLink, C_Header },

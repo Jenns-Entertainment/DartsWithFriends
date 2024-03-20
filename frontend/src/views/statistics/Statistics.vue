@@ -17,11 +17,12 @@
 </template>
 
 <script>
-import CompareStats_tr from "../components/Statistics/compareStats_tr.vue";
-import C_Content_box from "../components/global/C_Content_box.vue";
-import { useStatisticsStore } from "../stores/PageStores/Statistics";
-import users from "../assets/data/SampleData/users.json"
-import { useGlobalStore } from "../stores/AppItems";
+import CompareStats_tr from "./Statistics_item.vue";
+import C_Content_box from "../../components/global/C_Content_box.vue";
+import { useStatisticsStore } from "../../stores/PageStores/Statistics";
+import users from "../../assets/data/SampleData/users.json"
+import { useGlobalStore } from "../../stores/AppItems";
+import "../../assets/styles/table-styles.css"
 
 export default {
   components: {

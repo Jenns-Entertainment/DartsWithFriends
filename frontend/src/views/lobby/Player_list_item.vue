@@ -15,7 +15,7 @@
 
 
 <script>
-import Player_List_Item_Hover from './Player_List_Item_Hover.vue';
+import Player_List_Item_Hover from './Player_list_item_hover.vue';
 
 export default {
   name: "Player_List_Item",
@@ -51,4 +51,4 @@ export default {
   emits: ['join-lobby']
 }
 
-</script>
+</script>./Player_list_item_hover.vue./Player_list_item.vue

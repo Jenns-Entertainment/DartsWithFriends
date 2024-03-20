@@ -45,11 +45,11 @@
 import MainHeader from "@/components/global/MainHeader.vue";
 import { getGlobalThis, parseStringStyle } from "@vue/shared";
 import { getTransitionRawChildren, initCustomFormatter } from "vue";
-import ButtonScore from "../components/Board/ButtonScore.vue";
-import CurrentScore from "../components/Board/currentScore.vue";
-import InputScoreThrow from "../components/Board/inputScoreThrow.vue";
-import ButtonScoreList from "../components/Board/ButtonScoreList.vue";
-import { useLobbyStore } from "../stores/lobby";
+import ButtonScore from "./ButtonScore.vue";
+import CurrentScore from "./currentScore.vue";
+import InputScoreThrow from "./inputScoreThrow.vue";
+import ButtonScoreList from "./ButtonScoreList.vue";
+import { useLobbyStore } from "../../stores/lobby";
 
 
 export default {

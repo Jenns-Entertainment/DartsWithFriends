@@ -15,10 +15,8 @@
 </template>
 
 <script>
-import Lobby from '../../views/Lobby.vue';
 import '../../assets/styles/table-styles.css'
-import LobbieListItem from './LobbieListItem.vue';
-import { useLobbyStore } from '../../stores/lobby';
+import LobbieListItem from './Lobbie_list_item.vue';
 import { useGlobalStore } from '../../stores/AppItems';
 import lobbyData from '../../assets/data/SampleData/lobbys.json'
 
@@ -34,9 +32,6 @@ export default {
     fn_joinLobby(p_lobby) {
       const globalStore = useGlobalStore();
       globalStore.current_lobby_id = p_lobby.id
-      //console.log(globalStore.current_lobby_id);
-      //const lobbyStore = useLobbyStore();
-      //lobbyStore.setLobby(p_lobby);
       this.$router.push({ name: 'Lobby' });
     },
       loadLobbies() {
@@ -47,10 +42,10 @@ export default {
   mounted() {
       this.loadLobbies();
   },
-  components: { Lobby, LobbieListItem },
+  components: { LobbieListItem },
   emits: ['join-lobby']
 }
 </script>
 
 <style scoped>
-</style>
+</style>./Lobbie_list_item.vue

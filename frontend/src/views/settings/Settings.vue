@@ -26,10 +26,10 @@
 </template>
 
 <script>
-import '../assets/styles/settings-style.css'
-import AccountSettings from '../components/Settings/AccountSettings.vue';
-import UI_Preferences from '../components/Settings/UI_Preferences.vue';
-import PrivacySettings from '../components/Settings/PrivacySettings.vue';
+import '../../assets/styles/settings-style.css'
+import AccountSettings from './Account_settings.vue';
+import UI_Preferences from './UI_settings.vue';
+import PrivacySettings from './Privacy_settings.vue';
 
 export default {
   name: "Settings",

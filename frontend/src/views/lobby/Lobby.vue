@@ -33,9 +33,9 @@
 </template>
 
 <script>
-import CreateLobby from "../components/Lobby/CreateLobby.vue";
-import PlayerList from "../components/Lobby/PlayerList.vue";
-import { useLobbyStore } from "../stores/lobby";
+import CreateLobby from "../lobbies/Create_lobby.vue";
+import PlayerList from "./Player_list.vue";
+import { useLobbyStore } from "../../stores/lobby";
 
 
 export default {

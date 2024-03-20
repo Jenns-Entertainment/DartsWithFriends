@@ -10,8 +10,8 @@
 
 
 <script>
-import InviteFriend_Modal from './InviteFriend_Modal.vue';
-import Player_List_Item from './Player_List_Item.vue';
+import InviteFriend_Modal from './Invite_friend.vue';
+import Player_List_Item from './Player_list_item.vue';
 
 export default {
     name: "PlayerList",
@@ -36,4 +36,4 @@ export default {
     //emits: ['join-lobby']
 }
 
-</script>
+</script>./Player_list_item.vue

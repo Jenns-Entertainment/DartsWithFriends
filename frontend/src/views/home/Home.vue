@@ -6,7 +6,7 @@
         <button @click="joinGame" class="action-button primary">Join Game</button>
       </div>
       <LastGamesSection />
-      <StatisticsSection />
+      <StatisticsSection/>
     </div>
 
     <div id="home-right-column" class="column">
@@ -23,18 +23,22 @@
 </template>
 
 <script>
-import FriendsHover from "../components/Home/Friends/FriendsHover.vue";
-import FriendsSection from "../components/Home/Friends/FriendsSection.vue";
-import CreateLobby from "../components/Lobby/CreateLobby.vue";
-import LastGamesSection from "../components/Home/LastGames/LastGamesSection.vue";
-import StatisticsSection from "../components/Home/Statistics/StatisticsSection.vue";
-import '../assets/styles/home-style.css';
-import C_Content_box from "../components/global/C_Content_box.vue";
+
+
+
+
+
+
+import CreateLobby from "../lobbies/Create_lobby.vue";
+import '../../assets/styles/home-style.css';
+import C_Content_box from "../../components/global/C_Content_box.vue";
+import LastGamesSection from "./last_games/LastGamesSection.vue";
+import StatisticsSection from "./stats_preview/StatisticsSection.vue";
+import FriendsSection from "./friends/FriendsSection.vue";
 
 export default {
   components: {
     CreateLobby,
-    FriendsHover,
     LastGamesSection,
     FriendsSection,
     StatisticsSection,

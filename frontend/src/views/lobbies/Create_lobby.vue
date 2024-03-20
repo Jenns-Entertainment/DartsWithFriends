@@ -66,11 +66,9 @@
 </template>
   
 <script>
-import C_Header from '../global/C_Header.vue';
-import C_txtField from '../global/C_txtField.vue';
+import C_Header from '../../components/global/C_Header.vue';
+import C_txtField from '../../components/global/C_txtField.vue';
 import { useLobbyStore } from '../../stores/lobby.js';
-import { useGlobalStore } from '../../stores/AppItems';
-import { vShow } from 'vue';
 export default {
   name: "CreateLobby",
   components: { C_Header, C_txtField },
