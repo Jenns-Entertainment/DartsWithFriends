@@ -1,8 +1,14 @@
 const players = require('../services/players.service');
+const argon2 = require('argon2')
 
-async function create(req, res, next) {
+async function register(req, res, next) {
     try {
-        res.json(await players.create(req.body));
+        let new_player = {}
+        new_player.email = req.body.email
+        new_player.nickname = req.body.nickname
+        new_player.password = await argon2.hash(req.body.password);
+
+        res.json(await players.create(new_player));
     } catch (err) {
         console.error(`Error while creating player`, err.message);
         next(err);
@@ -46,7 +52,7 @@ async function remove(req, res, next) {
 }
 
 module.exports = {
-    create,
+    register,
     get,
     update,
     remove
