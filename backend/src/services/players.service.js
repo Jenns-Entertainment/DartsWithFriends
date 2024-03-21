@@ -35,7 +35,7 @@ async function get_by_email(email){
     );
 
     if (result.length === 0){
-        return {message: 'Could not find player'}
+        return null
     }
 
     let player = new Player(result[0])

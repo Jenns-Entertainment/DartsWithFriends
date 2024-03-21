@@ -17,13 +17,19 @@ async function register(req, res, next) {
 
 async function login(req, res, next) {
     try {
-        let player = await players.get_by_email(req.body.email)
-        if (await argon2.verify(player.password, req.body.password)) {
-            // password match
-            // return http 200
-        } else {
-            // return http unauthorized
-            // password did not match
+        const player = await players.get_by_email(req.body.email)
+        if(player === null) {
+            res.sendStatus(404)
+        }
+        else {
+            if (await argon2.verify(player.player.password, req.body.password)) {
+                // password match
+                res.sendStatus(200);
+            } else {
+                // return http unauthorized
+                // password did not match
+                res.sendStatus(404)
+            }
         }
     } catch (err) {
         console.error(`Error while logging in`, err.message);
@@ -68,6 +74,7 @@ async function remove(req, res, next) {
 }
 
 module.exports = {
+    login,
     register,
     get,
     update,
