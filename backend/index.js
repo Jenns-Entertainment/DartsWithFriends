@@ -1,4 +1,5 @@
 const express = require("express");
+const session = require('express-session')
 require('dotenv').config({ path: '../.env' })
 const PORT = process.env.BACKEND_PORT || 3000;
 const playersRouter = require('./src/routes/players.route');
@@ -7,6 +8,14 @@ const authRouter = require('./src/routes/auth.route');
 
 const app = express ();
 app.use(express.json());
+
+app.use(session({
+    // FIXME: This is not an acceptable secret
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+}))
 
 app.get('/', (req, res) => {
     res.json({'message': 'ok'});
