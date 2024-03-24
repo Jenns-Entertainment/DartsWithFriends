@@ -9,6 +9,10 @@ const authRouter = require('./src/routes/auth.route');
 const app = express ();
 app.use(express.json());
 
+/*
+    FIXME: This uses the default in Memory store, this leaks memory and can only be used for developing,
+    for any productive use another session store has to be integrated
+ */
 app.use(session({
     // FIXME: This is not an acceptable secret
     secret: 'keyboard cat',
