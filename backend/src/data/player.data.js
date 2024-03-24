@@ -5,7 +5,6 @@ class playerData {
         this.id = obj.id;
         this.email = obj.email;
         this.nickname = obj.nickname;
-        this.password = obj.password;
     }
 }
 

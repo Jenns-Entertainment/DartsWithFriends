@@ -27,7 +27,7 @@ async function create(player){
 
 async function get_by_email(email){
     const result = await db.query(
-        `SELECT player.pk_player_id,player.email,player.nickname,player.password FROM player
+        `SELECT player.pk_player_id,player.email,player.nickname FROM player
          WHERE player.email=?`,
         [
             email
@@ -45,7 +45,7 @@ async function get_by_email(email){
 
 async function get_by_id(id){
     const result = await db.query(
-        `SELECT player.pk_player_id,player.email,player.nickname,player.password FROM player
+        `SELECT player.pk_player_id,player.email,player.nickname FROM player
          WHERE player.pk_player_id=?`,
         [
             id
