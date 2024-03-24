@@ -26,7 +26,15 @@ async function login(req, res, next) {
     }
 }
 
+/*
+    FIXME: This is a function only for debugging, remove before any production use
+ */
+async function session_content(req, res, next) {
+    res.json(req.session);
+}
+
 module.exports = {
     login,
-    register
+    register,
+    session_content
 };
