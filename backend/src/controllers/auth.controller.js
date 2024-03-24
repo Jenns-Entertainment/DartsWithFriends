@@ -16,24 +16,13 @@ async function register(req, res, next) {
 }
 
 async function login(req, res, next) {
-    try {
-        const player = await players.get_by_email(req.body.email)
-        if(player === null) {
-            res.sendStatus(404)
-        }
-        else {
-            if (await argon2.verify(player.player.password, req.body.password)) {
-                // password match
-                res.sendStatus(200);
-            } else {
-                // return http unauthorized
-                // password did not match
-                res.sendStatus(404)
-            }
-        }
-    } catch (err) {
-        console.error(`Error while logging in`, err.message);
-        next(err);
+    const player = await players.verify(req.body.email,req.body.password)
+    if (player != null){
+        req.session.player = player;
+        res.sendStatus(200);
+    }
+    else {
+        res.sendStatus(404)
     }
 }
 
