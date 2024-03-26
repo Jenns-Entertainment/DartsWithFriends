@@ -25,7 +25,7 @@ import LogoutService from "@/services/LogoutService.js";
 import {useUserStore} from "@/stores/user";
 import router from "@/router";
 import {onMounted} from "vue";
-import C_Header from '../components/global/C_Header.vue';
+import C_Header from '../../components/global/C_Header.vue';
 
 const store = useUserStore();
 
@@ -34,10 +34,6 @@ async function performLogout () {
     await store.updatePlayer()
     await router.push({name: "login"});
   }
-}
-
-function loadProfileData(){
-  // TODO call Backend load Profile Data by userid
 }
 
 onMounted(() => {

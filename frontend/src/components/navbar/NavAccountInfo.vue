@@ -2,8 +2,8 @@
     <div class="origin-top-right absolute right-0 mt-2 w-36 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
       <form>
         <br>
-        <RouterLink to="board" class="btn_navaccountinfo" >Settings</RouterLink>
-        <RouterLink to="profile" class="btn_navaccountinfo" >Profile</RouterLink>
+        <RouterLink to="Settings" class="btn_navaccountinfo" >Settings</RouterLink>
+        <RouterLink to="Profile" class="btn_navaccountinfo" >Profile</RouterLink>
         <button to="board" class="btn_navaccountinfo" @click="logout()" v-if="user != null">Logout</button>
         <button to="board" class="btn_navaccountinfo" @click="logout()" v-if="user == null">Login</button>
       </form>

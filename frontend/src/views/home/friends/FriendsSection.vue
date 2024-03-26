@@ -1,5 +1,6 @@
 <!-- FriendsSection.vue -->
 
+
 <template>
   <div id="friends-section" class="home-section">
     <h2 class="Home-Section-Heading">Friends</h2>
@@ -26,6 +27,7 @@
 <script>
 import '../../../assets/styles/home-style.css';
 import '../../../assets/styles/table-styles.css';
+import users from '../../../assets/data/SampleData/users.json'
 import FriendItem from "./FriendItem.vue";
 import FriendsHover from "./FriendsHover.vue";
 
@@ -64,12 +66,7 @@ export default {
     
     loadFriends() {
       // Simulate loading friends data from an API or database
-      this.friends = [
-        { name: "Swaggerboy", online: true, clicked: false, id:0},
-        { name: "Schaumstoff", online: true, clicked: false, id:2},
-        { name: "Justus", online: false, clicked: false, id:3},
-        { name: "Zebastian", online: false, clicked: false, id:4 },
-      ];
+      this.friends = users[0].friends;
     },
   },
 };

@@ -3,12 +3,14 @@
         "userid":0,
         "username":"Emil",
         "friends":[
-            {"userid":1},
-            {"userid":2},
-            {"userid":3},
-            {"userid":4},
-            {"userid":5}
-        ]
+            {"userid":1, "online": true, "clicked": false ,"name":"Niggo"},
+            {"userid":2, "online": true, "clicked": false ,"name":"Nick"},
+            {"userid":3, "online": true, "clicked": false ,"name":"Justus"},
+            {"userid":4, "online": false, "clicked": false ,"name":"Sebi"},
+            {"userid":5, "online": false, "clicked": false ,"name":"Julius"}
+        ],
+        "nickname":"Emil",
+        "email":"sagichnicht@müll.de"
     },
     {
         "userid":1,
