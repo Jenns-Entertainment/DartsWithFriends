@@ -18,6 +18,16 @@ async function get(req, res, next) {
     }
 }
 
+async function get_current_player(req, res, next) {
+    let player = req.session.player;
+    if(player !== undefined){
+        res.json(player);
+    }
+    else {
+        res.sendStatus(401)
+    }
+}
+
 async function update(req, res, next) {
     try {
         res.json(await players.update(req.params.id, req.body));
@@ -39,5 +49,6 @@ async function remove(req, res, next) {
 module.exports = {
     get,
     update,
-    remove
+    remove,
+    get_current_player
 };
