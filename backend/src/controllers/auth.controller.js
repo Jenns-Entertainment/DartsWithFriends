@@ -26,6 +26,15 @@ async function login(req, res, next) {
     }
 }
 
+async function logout(req, res, next) {
+    try {
+        req.session.destroy();
+        res.sendStatus(200);
+    } catch (err) {
+        res.sendStatus(404)
+    }
+}
+
 /*
     FIXME: This is a function only for debugging, remove before any production use
  */
@@ -36,5 +45,6 @@ async function session_content(req, res, next) {
 module.exports = {
     login,
     register,
-    session_content
+    session_content,
+    logout
 };
