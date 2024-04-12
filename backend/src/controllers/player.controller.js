@@ -1,14 +1,5 @@
 const players = require('../services/players.service');
 
-async function create(req, res, next) {
-    try {
-        res.json(await players.create(req.body));
-    } catch (err) {
-        console.error(`Error while creating player`, err.message);
-        next(err);
-    }
-}
-
 async function get(req, res, next) {
     try {
         if(req.query.id !== undefined){
@@ -27,6 +18,16 @@ async function get(req, res, next) {
     }
 }
 
+async function get_current_player(req, res, next) {
+    let player = req.session.player;
+    if(player !== undefined){
+        res.json(player);
+    }
+    else {
+        res.sendStatus(401)
+    }
+}
+
 async function update(req, res, next) {
     try {
         res.json(await players.update(req.params.id, req.body));
@@ -36,8 +37,18 @@ async function update(req, res, next) {
     }
 }
 
+async function remove(req, res, next) {
+    try {
+        res.json(await players.remove(req.params.id));
+    } catch (err) {
+        console.error(`Error while removing player`, err.message);
+        next(err);
+    }
+}
+
 module.exports = {
-    create,
     get,
-    update
+    update,
+    remove,
+    get_current_player
 };

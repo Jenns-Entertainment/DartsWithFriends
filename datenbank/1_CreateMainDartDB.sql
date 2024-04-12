@@ -52,11 +52,14 @@ CREATE TABLE IF NOT EXISTS `game` (
                                       `amount_sets` int(11) NOT NULL,
                                       `amount_legs` int(11) NOT NULL,
                                       `fk_winner_id` int(11) DEFAULT NULL,
+                                      `fk_host_id` int(11) DEFAULT NULL,
                                       PRIMARY KEY (`pk_game_id`),
                                       KEY `game_game_type_key` (`fk_game_type_id`) USING BTREE,
                                       KEY `game_winner_key` (`fk_winner_id`) USING BTREE,
+                                      KEY `game_host_key` (`fk_host_id`) USING BTREE,
                                       CONSTRAINT `game_game_type_constraint` FOREIGN KEY (`fk_game_type_id`) REFERENCES `game_type` (`pk_game_type_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-                                      CONSTRAINT `game_winner_constraint` FOREIGN KEY (`fk_winner_id`) REFERENCES `player` (`pk_player_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                                      CONSTRAINT `game_winner_constraint` FOREIGN KEY (`fk_winner_id`) REFERENCES `player` (`pk_player_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+                                      CONSTRAINT `game_host_constraint` FOREIGN KEY (`fk_host_id`) REFERENCES `player` (`pk_player_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Daten-Export vom Benutzer nicht ausgewählt
