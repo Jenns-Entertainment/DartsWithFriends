@@ -1,0 +1,56 @@
+.settings-box {
+  display: table;
+  width: 100%;
+  
+}
+
+.settings-navbar-left {
+  display: table-cell;
+  width: 15%;
+  padding: 20px;
+  background: #e2e2e2;
+  border-right: 5px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-column-placeholder {
+  display: table-cell;
+  width: 15%;
+}
+
+.settings-content-right {
+  display: table-cell;
+  width: 30%;
+  padding: 20px;
+  background: #e2e2e2;
+}
+
+.settings-navbar-left button {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #a8a8a8;
+  background-color: #cfcfcf;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.settings-navbar-left button:hover {
+  background-color: #f5f5f5;
+}
+
+.centered-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.Settings-Heading{
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+}
+
+

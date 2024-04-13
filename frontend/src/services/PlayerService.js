@@ -1,4 +1,5 @@
 import Player from '@/assets/data/Player.class'
+import users from '../assets/data/SampleData/users.json'
 
 export default {
     getCurrentSpieler(){
@@ -20,6 +21,19 @@ export default {
             }).catch(() => {
                 return null
             })
+    },
+
+    getCurrentSpieler_temp(global_user_id){
+        if(global_user_id == null){
+            return null
+        }else{
+            for (const user of users) {
+                if (user.userid === global_user_id) {
+                console.log(user)
+                    return user;
+                }
+            }
+        }
     }
 
 }

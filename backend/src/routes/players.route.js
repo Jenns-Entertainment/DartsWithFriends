@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const programmingLanguagesController = require('../controllers/player.controller');
+const playerController = require('../controllers/player.controller');
 
 /* POST programming language */
-router.post('/', programmingLanguagesController.create);
+router.get('/', playerController.get);
+router.get('/current', playerController.get_current_player);
+router.put('/:id', playerController.update);
+router.delete('/:id', playerController.remove);
 
 module.exports = router;

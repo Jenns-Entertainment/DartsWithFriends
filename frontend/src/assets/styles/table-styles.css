@@ -1,0 +1,113 @@
+/* table-styles.css */
+
+.table-action-button,
+.table-view-button,
+.table-warning-button,
+.table-cancel-button {
+    color: #ffffff;
+    width: 100%; 
+    height: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  
+  .table-action-button{
+    background-color: #2b742d; 
+  }
+
+  .table-action-button:hover{
+    background-color: #0c4b17;
+  }
+
+  .table-view-button {
+    background-color: #16588f; 
+  }
+
+  .table-view-button:hover{
+    background-color: #114977;
+  }
+
+  .table-warning-button {
+    background-color: #9c1616; 
+  }
+
+  .table-warning-button:hover{
+    background-color: #851111;
+  }
+
+  .table-cancel-button {
+    background-color: #5a5a5a; 
+  }
+
+  .table-warning-button:hover{
+    background-color: #353535;
+  }
+  
+  .dart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: lightgray;
+  }
+  
+  .green-header {
+    padding-left: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 10px;
+    text-align: center;
+    background-color: #2b742d;
+    color: #ffffff;
+  }
+  .dart-table th {
+    padding-left: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 10px;
+    text-align: center;
+    background-color: #2b742d;
+    color: #ffffff;
+  }
+
+  .dart-table tr{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: lightgray;
+  }
+
+  .dart-table tr:nth-child(even) {
+    background-color: lightgray;
+  }
+  
+  .dart-table tr:nth-child(odd) {
+    background-color: white;
+  }
+
+  /*
+  th, td {
+    
+    padding: 8px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  */
+
+  .dart-table td{
+    border: 1px solid #ddd;
+    padding-left: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right: 10px;
+    text-align: center;
+  }
+
+
+  
+  
+
+  
+
+  

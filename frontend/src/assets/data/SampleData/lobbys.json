@@ -1,0 +1,80 @@
+[
+    {
+      "name": "Emil",
+      "amtPlayers": 3,
+      "private": false,
+      "lobbyCode": "12345",
+      "status": 1,  
+      "ruleset": 1,
+      "id": 1,
+      "cur_turn_pos":2,
+      "players":[
+        {
+            "userid":0,
+            "legs":1,
+            "sets":0,
+            "turn_pos":0,
+            "points_left":300
+        },
+        {
+            "userid":1,
+            "legs":0,
+            "sets":0,
+            "turn_pos":0,
+            "points_left":400
+        },
+        {
+            "userid":2,
+            "legs":2,
+            "sets":1,
+            "turn_pos":2,
+            "points_left":100
+        }
+      ]
+    },
+    {
+      "name": "Test1",
+      "amtPlayers": 4,
+      "private": false,
+      "lobbyCode": "12345",
+      "status": "0",
+      "ruleset": 0,
+      "id": 2
+    },
+    {
+      "name": "Nick",
+      "amtPlayers": 1,
+      "private": false,
+      "lobbyCode": "12345",
+      "status": "0",
+      "ruleset": 1,
+      "id": 3
+    },
+    {
+      "name": "Justus",
+      "amtPlayers": 2,
+      "private": false,
+      "lobbyCode": "12345",
+      "status": "1",
+      "ruleset": 1,
+      "id": 4
+    },
+    {
+      "name": "Karls Lobby",
+      "amtPlayers": 3,
+      "private": true,
+      "lobbyCode": "22222",
+      "status": "0",
+      "ruleset": 1,
+      "id": 5
+    },
+    {
+      "name": "Darts is fun",
+      "amtPlayers": 2,
+      "private": true,
+      "lobbyCode": "11111",
+      "status": "2",
+      "ruleset": 1,
+      "id": 6
+    }
+]
