@@ -1,42 +1,14 @@
 <template>
-  <nav class="bg-gray-900" id="navbar">
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-      <div class="relative flex items-center justify-between h-16">
-        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden" id="mobile">
-          <!-- Mobile menu button-->
-          <button type="button"
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-            aria-controls="mobile-menu" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <!--
-            Icon when menu is closed.
-            Heroicon name: outline/menu
-            Menu open: "hidden", Menu closed: "block"
-          -->
-            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <!--
-            Icon when menu is open.
-            Heroicon name: outline/x
-            Menu open: "block", Menu closed: "hidden"
-          -->
-            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-        <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start" id="left-side-nav">
-          <div class="flex-shrink-0 flex items-center">
-            <img class="hidden lg:block h-8 w-auto" src="@/assets/images/Dartboard.svg" alt="Dart"
-              @click="this.$router.push({ name: 'Home' })">
-            <!-- Image-->
+  <nav class="navbar" id="navbar">
+    <div class="navcontainer">
+      <div class="navbar-content">
+        <!-- Logo and links -->
+        <div class="navbar-left">
+          <div class="logo-container">
+            <img class="logo hidden lg:block" src="@/assets/images/Dartboard.svg" alt="Dart" @click="this.$router.push({ name: 'Home' })">
           </div>
-          <div class="hidden sm:block sm:ml-6">
-            <div class="flex space-x-4">
-              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          <div class="navbar-left hidden sm:block sm:ml-6">
+            <div class="link-group">
               <NavLink link="Home" name="Home" />
               <NavLink link="About" name="About" />
               <NavLink link="Board" name="Board" />
@@ -44,42 +16,24 @@
             </div>
           </div>
         </div>
-        <div class="hidden sm:block sm:ml-6" id="right-side-nav" name="right-side-Buttons">
-          <div class="flex space-x-4">
+        <!-- Right-side buttons -->
+        <div class="navbar-right hidden sm:block sm:ml-6" id="right-side-nav">
+          <div class="link-group">
             <NavLink link="Lobbies" name="Lobbies" />
-            <NavLink link="JoinLobby" name="join Lobby" />
-            <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" @click="fn_route_createLobby()">create Lobby</button>
-            <img class="hidden lg:block h-8 w-auto" src="@/assets/images/ProfileIcon2.png" alt="Profile"
-              aria-current="page" @click="toggleShowAccountInfo" v-if="this.store.currentUser != null">
+            <NavLink link="JoinLobby" name="Join Lobby" />
+            <button class="create-lobby-btn" @click="fn_route_createLobby()">Create Lobby</button>
+            <img class="profile-icon hidden lg:block" src="@/assets/images/ProfileIcon2.png" alt="Profile" aria-current="page" @click="toggleShowAccountInfo" v-if="this.store.currentUser != null">
             <NavLink link="Login" name="Login" v-if="this.store.currentUser == null"></NavLink>
+            
           </div>
-          <div v-if="showAccountInfo" class="hidden sm:block sm:ml-6" @mouseleave="toggleShowAccountInfo">
-            <div class="flex space-x-4">
+          <div v-if="showAccountInfo" class="account-info hidden sm:block sm:ml-6" @mouseleave="toggleShowAccountInfo">
+            <div class="link-group">
               <NavAccountInfo :user="this.store.currentUser"></NavAccountInfo>
-
             </div>
           </div>
         </div>
       </div>
     </div>
-
-
-    <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="sm:hidden" id="mobile-menu">
-      <div class="px-2 pt-2 pb-3 space-y-1">
-        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-          aria-current="page">Dashboard</a>
-        <a href="#"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-        <a href="#"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-        <a href="#"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
-        <!-- TODO Navbar für Mobile machen -->
-      </div>
-    </div>
-
   </nav>
 </template>
 
@@ -88,6 +42,7 @@ import NavLink from "@/components/navbar/NavLink.vue"
 import NavAccountInfo from "@/components/navbar/NavAccountInfo.vue";
 import { useUserStore } from "@/stores/user";
 import { useGlobalStore } from "../../stores/AppItems";
+
 export default {
   name: 'MainNav',
   components: { NavLink, NavAccountInfo },
@@ -108,15 +63,146 @@ export default {
       const globalStore = useGlobalStore();
       globalStore.nextPage = 'createLobby';
       this.$router.push(({name: 'Lobbies'}))
+    },
+    toggleMobileMenu() {
+      // Functionality to toggle mobile menu
     }
   },
-
-  async created() {
-    //console.log(this.store);
-  }
 }
 </script>
 
+<style scoped>
+.navbar {
+  background-color: #1a202c;
+  padding: 0.5rem 0;
+}
 
+.navcontainer {
+  max-width: 85%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
 
-<style></style>
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container {
+  margin-right: 1rem;
+}
+
+.logo {
+  height: 2rem;
+  cursor: pointer;
+}
+
+.navbar-links {
+  display: none;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.link-group {
+  display: flex;
+  align-items: center;
+}
+
+.create-lobby-btn {
+  background-color: transparent;
+  color: #d1d5db;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.profile-icon {
+  height: 1.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.account-info {
+  position: absolute;
+  top: 3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu-items {
+  padding: 0.5rem 0;
+}
+
+.menu-item {
+  padding: 0.5rem 1rem;
+  display: block;
+  color: #d1d5db;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.menu-item:hover {
+  background-color: #4a5568;
+  color: #fff;
+}
+
+.menu-item.active {
+  background-color: #4a5568;
+  color: #fff;
+}
+
+.menu-icon {
+  fill: none;
+  stroke: #a0aec0;
+  stroke-width: 2;
+}
+
+.mobile-menu-button {
+  padding: 0.5rem;
+}
+
+.mobile-menu-content {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .navbar-content {
+    flex-direction: column;
+  }
+
+  .navbar-left {
+    margin-bottom: 0.5rem;
+  }
+
+  .navbar-links {
+    display: block;
+  }
+
+  .navbar-right {
+    margin-top: 0.5rem;
+  }
+
+  .mobile-menu-content {
+    display: block;
+  }
+
+  .menu-item {
+    padding: 0.5rem;
+  }
+
+  .menu-items {
+    padding: 0;
+  }
+}
+</style>
